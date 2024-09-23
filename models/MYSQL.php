@@ -17,6 +17,7 @@ class MySQL
         if ($contrasena) $this->contrasena = $contrasena;
         if ($nombreBaseDatos) $this->nombreBaseDatos = $nombreBaseDatos;
     }
+
     public function conectar()
     {
         try {
@@ -29,6 +30,7 @@ class MySQL
             die("Excepción capturada: " . $e->getMessage());
         }
     }
+
     public function getConexion()
     {
         return $this->conexion;
@@ -39,6 +41,7 @@ class MySQL
             $this->conexion->close();
         }
     }
+
     public function efectuarConsulta($consulta, $parametros = [], $tipos = '')
     {
         try {
@@ -64,6 +67,7 @@ class MySQL
             die("Excepción capturada: " . $e->getMessage());
         }
     }
+
     public function ultimoIdInsertado()
     {
         return $this->conexion->insert_id;
