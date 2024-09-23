@@ -10,6 +10,12 @@ class ComentarioModel
         $this->db = new MySQL();
         $this->db->conectar();
     }
+    
+    public function agregarComentario($autor, $contenido)
+    {
+        $consulta = "INSERT INTO comentarios (autor, contenido) VALUES (?, ?)";
+        return $this->db->efectuarConsulta($consulta, [$autor, $contenido], 'ss');
+    }
 
     public function obtenerComentarios()
     {
@@ -28,12 +34,6 @@ class ComentarioModel
         $consulta = "SELECT * FROM comentarios WHERE id = ?";
         $resultado = $this->db->efectuarConsulta($consulta, [$id], 'i');
         return mysqli_fetch_assoc($resultado);
-    }
-
-    public function agregarComentario($autor, $contenido)
-    {
-        $consulta = "INSERT INTO comentarios (autor, contenido) VALUES (?, ?)";
-        return $this->db->efectuarConsulta($consulta, [$autor, $contenido], 'ss');
     }
 
     public function actualizarComentario($id, $autor, $contenido)
