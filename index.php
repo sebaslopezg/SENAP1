@@ -3,6 +3,10 @@ require_once 'controllers/ComentarioController.php';
 require_once 'controllers/home.php';
 
 $home = new Home();
+
+
+// codigo anterior
+
 //$controller = new ComentarioController();
 
 // Manejo de solicitudes POST para formularios
@@ -31,5 +35,3 @@ $home = new Home();
 //}
 
 ?>
-
-<h1>hola</h1>
