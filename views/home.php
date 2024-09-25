@@ -6,6 +6,8 @@
     <title>HOME</title>
 </head>
 <body>
-    <h1>estas en casa</h1>
+    <h1>Sistema de Gestion</h1>
+    <a href="index.php?call=aprendices">Gestionar Aprendices</a><br>
+    <a href="index.php?call=cursos">Gestionar cursos</a>
 </body>
 </html>
