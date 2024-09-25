@@ -15,14 +15,14 @@
     <!-- Para modal -->
     <div>
 
-        <form action="index.php?call=aprendices" method="post"><br>
-            <label>Nombre</label><input type="text"><br>
-            <label>Apellido</label><input type="text"><br>
-            <label>Documento</label><input type="text"><br>
-            <label>Genero</label><input type="text"><br>
-            <label>Fecha de nacimiento</label><input type="text"><br>
-            <label>Telefono</label><input type="text"><br>
-            <label>Correo</label><input type="text"><br><br>
+        <form action="index.php?call=aprendices&tipo=guardar" method="post"><br>
+            <label>Nombre</label><input type="text" name="nombre"><br>
+            <label>Apellido</label><input type="text" name="apellido"><br>
+            <label>Documento</label><input type="text" name="documento"><br>
+            <label>Genero</label><input type="text" name="genero"><br>
+            <label>Fecha de nacimiento</label><input type="text" name="fechaNacimiento"><br>
+            <label>Telefono</label><input type="text" name="telefono"><br>
+            <label>Correo</label><input type="text" name="email"><br><br>
             <input type="submit" value="Guardar">
         </form>
 
@@ -31,8 +31,12 @@
 
     <?php
 
+        $controllers = new Controllers();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-           
+           if ($_GET['tipo'] === 'guardar') {
+            $controllers->guardarAprendices();
+           }
         }
 
     ?>

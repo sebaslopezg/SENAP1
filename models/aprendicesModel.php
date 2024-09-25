@@ -22,6 +22,11 @@ class AprendicesModel{
         }
         return $aprendices;
     }
+
+    function AgregarAprendiz($numeroDoc, $nombreAprendiz, $apellidoAprendiz, $generoAprendiz, $fechaNacimiento, $telefono, $email){
+        $consulta = "INSERT INTO aprendices (num_Doc_Apr , nombre_Apr, apellido_Apr, genero_Apr, fecha_Nacimiento_Apr, telefono_Apr, correo_Apr) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        return $this->db->efectuarConsulta($consulta, [$numeroDoc, $nombreAprendiz, $apellidoAprendiz, $generoAprendiz, $fechaNacimiento, $telefono, $email], 'sssssss');
+    }
 }
 
 ?>

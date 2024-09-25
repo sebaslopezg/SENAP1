@@ -4,7 +4,6 @@ require_once 'models/aprendicesModel.php';
 
 class Controllers{
 
-
     function home(){
         require 'views/home.php';
     }
@@ -15,6 +14,12 @@ class Controllers{
         $arrAprendices = $this->aprendicesModel->mostrarAprendices();
         require 'views/aprendices.php';
         //print_r($arrAprendices);
+    }
+
+    function guardarAprendices(){
+        $this->aprendicesModel = new AprendicesModel();
+        
+        echo "de debe GUARDAR AAAA";
     }
 
     function cursos(){
