@@ -6,6 +6,7 @@ class MySQL
     private $contrasena = '';
     private $nombreBaseDatos = 'db_aprendices';
     private $conexion;
+
     public function __construct(
         $ipServidor = null,
         $usuarioBase = null,
@@ -35,6 +36,7 @@ class MySQL
     {
         return $this->conexion;
     }
+
     public function desconectar()
     {
         if ($this->conexion) {

@@ -9,6 +9,7 @@
 <body>
     <h1><?php echo isset($comentario) ? 'Editar Comentario' : 'Agregar Comentario';
         ?></h1>
+
     <form action="index.php" method="post">
         <input type="hidden" name="id" value="<?php echo isset($comentario) ?
                                                     $comentario['id'] : ''; ?>">
@@ -25,6 +26,7 @@
             <?php echo isset($comentario) ? 'Actualizar' : 'Agregar'; ?>
         </button>
     </form>
+    
 </body>
 
 </html>
