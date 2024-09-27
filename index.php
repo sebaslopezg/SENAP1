@@ -2,6 +2,7 @@
 require_once 'controllers/ComentarioController.php';
 require_once 'controllers/Controllers.php';
 require_once 'controllers/CursoController.php';
+require_once 'controllers/AsignarCursos.php';
 
 //helpers
 
@@ -13,6 +14,7 @@ function sideBar()
 
 $controllers = new Controllers();
 $cursosController = new CursoController();
+$AsignarCursos = new AsignarCursos();
 
 //print_r($_GET);
 
@@ -27,6 +29,10 @@ if (count($_GET) > 0) {
             break;
         case 'cursos':
             $cursosController->listarCursos();
+
+        case 'AsignarCursos':
+            $AsignarCursos->mostrar();
+            break;
 
         default:
             # code...

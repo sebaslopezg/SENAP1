@@ -40,6 +40,8 @@ class Controllers
                     $_POST['correoAprendiz']
                 );
             }
+            header('Location: index.php?call=aprendices');
+            exit();
         }
 
         $arrAprendices = $this->aprendicesModel->mostrarAprendices();
