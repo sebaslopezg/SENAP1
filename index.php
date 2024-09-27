@@ -1,8 +1,10 @@
 <?php
 require_once 'controllers/ComentarioController.php';
 require_once 'controllers/Controllers.php';
+require_once 'controllers/CursoController.php';
 
 $controllers = new Controllers();
+$cursoController = new CursoController();
 
 //print_r($_GET);
 
@@ -12,14 +14,15 @@ if (count($_GET) > 0) {
         case 'home':
             $controllers->home();
             break;
-
         case 'aprendices':
             $controllers->aprendices();
             break;
-
         case 'cursos':
-            $controllers->cursos();
-
+            $cursoController->listarCursos();
+            break;/* 
+        case 'asignar':
+            $cursoController->listarCursos();
+            break; */
         default:
             # code...
             break;
@@ -31,12 +34,12 @@ if (count($_GET) > 0) {
 
 // codigo anterior
 
-$controller = new CursoController();
+//$controller = new ComentarioController();
 
 // Manejo de solicitudes POST para formularios
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+/* if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller->manejarFormulario();
-} /* elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case 'eliminar':
@@ -50,10 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 break;
             default:
-                $controller->listarCursos();
+                $controller->listarComentarios();
                 break;
         }
-    } */ else {
-    $controller->listarCursos();
-}
-/* } */
+    } else {
+        $controller->listarComentarios();
+    }
+} */

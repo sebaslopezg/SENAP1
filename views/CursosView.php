@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,6 +10,10 @@
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" />
+  <!-- <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css" /> -->
+
   <!--Bootstrap-->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -28,9 +32,13 @@
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
 
   <!-- Font Awesome Icons -->
+  <!-- <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> -->
+
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <!-- DataTables -->
   <link
@@ -43,102 +51,102 @@
     rel="stylesheet"
     href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css" />
 
+  <!-- Estilos personalizados -->
+  <style>
+    /* Ocultar el texto del logotipo cuando el menú esté contraído */
+    .sidebar-collapse .brand-link h6 {
+      display: none;
+      /* Oculta el texto "Sistema de Gestión" */
+    }
+
+    /* Ocultar el texto del usuario cuando el menú esté contraído */
+    .sidebar-collapse .user-panel .info span {
+      display: none;
+      /* Oculta el texto "Usuario" */
+    }
+
+    /* Mostrar los iconos cuando el menú esté contraído */
+    .sidebar-collapse .brand-link .nav-icon,
+    .sidebar-collapse .user-panel .icon {
+      display: inline-block;
+    }
+
+    /* Mostrar el texto normalmente cuando el menú esté expandido */
+    .brand-link h6,
+    .user-panel .info span {
+      display: inline-block;
+      /* Asegura que el texto esté visible */
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-    <!-- Navbar -->
+    <!-- Barra de navegación - Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav" style="margin-left: 1%;">
-        <li class=" nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      <!-- Enlaces de navegación -->
+      <ul class="navbar-nav" style="margin-left: 1%">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
+      <span style="margin-left: 1%">Gestión de Cursos</span>
     </nav>
     <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul
-            class="nav nav-pills nav-sidebar flex-column"
-            data-widget="treeview"
-            role="menu"
-            data-accordion="true">
-            <!-- Aprendices Menu -->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Aprendices
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <!-- Crear Aprendiz -->
-                <li class="nav-item">
-                  <a href="crear_aprendiz.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Crear Aprendiz</p>
-                  </a>
-                </li>
-                <!-- Editar Aprendiz -->
-                <li class="nav-item">
-                  <a href="editar_aprendiz.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editar Aprendiz</p>
-                  </a>
-                </li>
-                <!-- Mostrar Aprendices -->
-                <li class="nav-item">
-                  <a href="mostrar_aprendices.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Mostrar Aprendices</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
 
-            <!-- Cursos Menu -->
+
+
+
+    <!-- Menú lateral -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Logotipo -->
+      <div class="brand-link" style="text-align: center">
+        <i class="nav-icon fas fa-chart-line" style="padding-right: 2%;"></i>
+        <h6>Sistema de Gestión</h6>
+      </div>
+
+      <!-- Menú - Sidebar -->
+      <div class="sidebar">
+        <!-- Perfil de usuario -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="justify-content: center">
+          <div class="icon">
+            <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%;"></i>
+          </div>
+          <div class="info">
+            <span style="color: white">Administrador</span>
+          </div>
+        </div>
+
+        <!-- Navegación -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+            <li class="nav-item">
+              <a href="index.php?call=home" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>
+                <p>Inicio</p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Cursos
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+                <i class="nav-icon fas fa-users"></i>
+                <p>Aprendices</p>
               </a>
-              <ul class="nav nav-treeview">
-                <!-- Crear Curso -->
-                <li class="nav-item">
-                  <a href="crear_curso.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Crear Curso</p>
-                  </a>
-                </li>
-                <!-- Editar Curso -->
-                <li class="nav-item">
-                  <a href="editar_curso.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editar Curso</p>
-                  </a>
-                </li>
-                <!-- Mostrar Cursos -->
-                <li class="nav-item">
-                  <a href="mostrar_cursos.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Mostrar Cursos</p>
-                  </a>
-                </li>
-              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-book"></i>
+                <p>Cursos</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-tasks"></i>
+                <p>Asignar cursos</p>
+              </a>
             </li>
           </ul>
         </nav>
-        <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
     </aside>
@@ -149,17 +157,17 @@
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-sm-1 ps-4">
+            <div class="col-sm-1" style="text-align: center;">
               <h1>Cursos</h1>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-2">
               <!-- Inicio modal -->
               <button
                 type="button"
                 class="btn btn-primary"
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
+                data-bs-target="#modalAgregarCurso">
                 <i class="bi bi-plus-circle"></i>
                 Agregar curso
               </button>
@@ -167,14 +175,16 @@
               <!-- Modal -->
               <div
                 class="modal fade"
-                id="exampleModal"
+                id="modalAgregarCurso"
                 tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+                aria-labelledby="labelAgregarCurso"
+                aria-hidden="true"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Curso</h1>
+                      <h1 class="modal-title fs-5" id="labelAgregarCurso">Nuevo Curso</h1>
                       <button
                         type="button"
                         class="btn-close"
@@ -240,10 +250,10 @@
               <!--Fin modal-->
             </div>
 
-            <div class="col-sm-7 pe-4">
+            <div class="col-sm-9" style="padding-right: 1%">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">Cursos</li>
+                <li class="breadcrumb-item"><a href="index.php?call=home">Inicio</a></li>
               </ol>
             </div>
           </div>
@@ -276,63 +286,70 @@
                     </thead>
 
                     <tbody>
-                      <?php foreach ($cursos as $curso): ?>
-                        <tr>
-                          <td><?php echo $curso['id_Cur']; ?></td>
-                          <td><?php echo $curso['nombre_Cur']; ?></td>
-                          <td><?php echo $curso['descripcion_Cur']; ?></td>
-                          <td><?php echo $curso['fecha_Creacion_Cur']; ?></td>
-                          <td style="text-align: center">
-                            <!-- Botón para abrir el modal específico de este curso -->
-                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditarCurso<?php echo $curso['id_Cur']; ?>">
-                              Editar
-                            </button>
+                      <?php if (!empty($cursos)): ?>
+                        <?php foreach ($cursos as $curso): ?>
+                          <tr>
+                            <td><?php echo htmlspecialchars($curso['id_Cur']); ?></td>
+                            <td><?php echo htmlspecialchars($curso['nombre_Cur']); ?></td>
+                            <td><?php echo htmlspecialchars($curso['descripcion_Cur']); ?></td>
+                            <td><?php echo htmlspecialchars($curso['fecha_Creacion_Cur']); ?></td>
+                            <td style="text-align: center">
 
-                            <!-- Modal único para cada curso -->
-                            <div class="modal fade" id="modalEditarCurso<?php echo $curso['id_Cur']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Curso</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              <!-- Botón para abrir el modal específico de este curso -->
+                              <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditarCurso<?php echo $curso['id_Cur']; ?>">
+                                Editar
+                              </button>
+
+                              <!-- Modal único para cada curso -->
+                              <div class="modal fade" id="modalEditarCurso<?php echo $curso['id_Cur']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Curso</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <!-- Formulario de Editar-->
+                                    <form action="index.php" method="post">
+                                      <div class="modal-body text-start">
+                                        <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
+
+                                        <!-- Nombre del curso -->
+                                        <div class="mb-3">
+                                          <label for="nombreCurso<?php echo $curso['id_Cur']; ?>" class="form-label">Nombre:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="nombreCurso"
+                                            id="nombreCurso<?php echo $curso['id_Cur']; ?>"
+                                            value="<?php echo $curso['nombre_Cur']; ?>"
+                                            required>
+                                        </div>
+
+                                        <!-- Descripción del curso -->
+                                        <div class="mb-3">
+                                          <label for="descripcion<?php echo $curso['id_Cur']; ?>" class="form-label">Descripción:</label>
+                                          <textarea class="form-control" name="descripcion" id="descripcion<?php echo $curso['id_Cur']; ?>" required><?php echo trim($curso['descripcion_Cur']); ?></textarea>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button class="btn btn-primary" type="submit" name="action" value="actualizar">Editar</button>
+                                      </div>
+                                    </form>
+                                    <!-- Fin Formulario de Editar-->
                                   </div>
-
-                                  <!-- Formulario de Editar-->
-                                  <form action="index.php" method="post">
-                                    <div class="modal-body text-start">
-                                      <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
-
-                                      <!-- Nombre del curso -->
-                                      <div class="mb-3">
-                                        <label for="nombreCurso<?php echo $curso['id_Cur']; ?>" class="form-label">Nombre:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="nombreCurso"
-                                          id="nombreCurso<?php echo $curso['id_Cur']; ?>"
-                                          value="<?php echo $curso['nombre_Cur']; ?>"
-                                          required>
-                                      </div>
-
-                                      <!-- Descripción del curso -->
-                                      <div class="mb-3">
-                                        <label for="descripcion<?php echo $curso['id_Cur']; ?>" class="form-label">Descripción:</label>
-                                        <textarea class="form-control" name="descripcion" id="descripcion<?php echo $curso['id_Cur']; ?>" required><?php echo trim($curso['descripcion_Cur']); ?></textarea>
-                                      </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                      <button class="btn btn-primary" type="submit" name="action" value="actualizar">Editar</button>
-                                    </div>
-                                  </form>
-                                  <!-- Fin Formulario de Editar-->
                                 </div>
                               </div>
-                            </div>
-                            <!-- Fin del modal -->
-                          </td>
+                              <!-- Fin del modal -->
+                            </td>
+                          </tr>
+                        <?php endforeach; ?>
+                      <?php else: ?>
+                        <tr>
+                          <td colspan="5">¡No hay cursos existentes!</td>
                         </tr>
-                      <?php endforeach; ?>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>
