@@ -3,8 +3,16 @@ require_once 'controllers/ComentarioController.php';
 require_once 'controllers/Controllers.php';
 require_once 'controllers/CursoController.php';
 
+//helpers
+
+function sideBar()
+{
+    $view_sidebar = "Views/sidebar.php";
+    require_once($view_sidebar);
+}
+
 $controllers = new Controllers();
-$cursoController = new CursoController();
+$cursosController = new CursoController();
 
 //print_r($_GET);
 
@@ -18,11 +26,8 @@ if (count($_GET) > 0) {
             $controllers->aprendices();
             break;
         case 'cursos':
-            $cursoController->listarCursos();
-            break;/* 
-        case 'asignar':
-            $cursoController->listarCursos();
-            break; */
+            $cursosController->listarCursos();
+
         default:
             # code...
             break;
@@ -37,26 +42,26 @@ if (count($_GET) > 0) {
 //$controller = new ComentarioController();
 
 // Manejo de solicitudes POST para formularios
-/* if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $controller->manejarFormulario();
-} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['action'])) {
-        switch ($_GET['action']) {
-            case 'eliminar':
-                if (isset($_GET['id'])) {
-                    $controller->eliminarComentario($_GET['id']);
-                }
-                break;
-            case 'editar':
-                if (isset($_GET['id'])) {
-                    $controller->mostrarFormulario($_GET['id']);
-                }
-                break;
-            default:
-                $controller->listarComentarios();
-                break;
-        }
-    } else {
-        $controller->listarComentarios();
-    }
-} */
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//    $controller->manejarFormulario();
+//} /* elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//    if (isset($_GET['action'])) {
+//        switch ($_GET['action']) {
+//            case 'eliminar':
+//                if (isset($_GET['id'])) {
+//                    $controller->eliminarComentario($_GET['id']);
+//                }
+//                break;
+//            case 'editar':
+//                if (isset($_GET['id'])) {
+//                    $controller->mostrarFormulario($_GET['id']);
+//                }
+//                break;
+//            default:
+//                $controller->listarCursos();
+//                break;
+//        }
+//    } */ else {
+//    $controller->listarCursos();
+//}
+/* } */
