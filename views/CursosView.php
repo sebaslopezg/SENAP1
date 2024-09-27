@@ -58,90 +58,7 @@
     </nav>
     <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul
-            class="nav nav-pills nav-sidebar flex-column"
-            data-widget="treeview"
-            role="menu"
-            data-accordion="true">
-            <!-- Aprendices Menu -->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Aprendices
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <!-- Crear Aprendiz -->
-                <li class="nav-item">
-                  <a href="crear_aprendiz.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Crear Aprendiz</p>
-                  </a>
-                </li>
-                <!-- Editar Aprendiz -->
-                <li class="nav-item">
-                  <a href="editar_aprendiz.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editar Aprendiz</p>
-                  </a>
-                </li>
-                <!-- Mostrar Aprendices -->
-                <li class="nav-item">
-                  <a href="mostrar_aprendices.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Mostrar Aprendices</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- Cursos Menu -->
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>
-                  Cursos
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <!-- Crear Curso -->
-                <li class="nav-item">
-                  <a href="crear_curso.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Crear Curso</p>
-                  </a>
-                </li>
-                <!-- Editar Curso -->
-                <li class="nav-item">
-                  <a href="editar_curso.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Editar Curso</p>
-                  </a>
-                </li>
-                <!-- Mostrar Cursos -->
-                <li class="nav-item">
-                  <a href="mostrar_cursos.php" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Mostrar Cursos</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
+    <?php sideBar(); ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -276,7 +193,8 @@
                     </thead>
 
                     <tbody>
-                      <?php foreach ($cursos as $curso): ?>
+                      <?php if (count($cursos) > 0): ?>
+                        <?php foreach ($cursos as $curso): ?>
                         <tr>
                           <td><?php echo $curso['id_Cur']; ?></td>
                           <td><?php echo $curso['nombre_Cur']; ?></td>
@@ -332,7 +250,8 @@
                             <!-- Fin del modal -->
                           </td>
                         </tr>
-                      <?php endforeach; ?>
+                        <?php endforeach; ?>
+                      <?php endif; ?>
                     </tbody>
                   </table>
                 </div>

@@ -1,8 +1,17 @@
 <?php
 require_once 'controllers/ComentarioController.php';
 require_once 'controllers/Controllers.php';
+require_once 'controllers/CursoController.php';
+
+//helpers
+
+function sideBar(){
+    $view_sidebar = "Views/sidebar.php";
+    require_once ($view_sidebar);
+}
 
 $controllers = new Controllers();
+$cursosController = new CursoController();
 
 //print_r($_GET);
 
@@ -18,7 +27,7 @@ if (count($_GET) > 0) {
             break;
 
         case 'cursos':
-            $controllers->cursos();
+            $cursosController->listarCursos();
 
         default:
             # code...
@@ -34,26 +43,26 @@ if (count($_GET) > 0) {
 $controller = new CursoController();
 
 // Manejo de solicitudes POST para formularios
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $controller->manejarFormulario();
-} /* elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    if (isset($_GET['action'])) {
-        switch ($_GET['action']) {
-            case 'eliminar':
-                if (isset($_GET['id'])) {
-                    $controller->eliminarComentario($_GET['id']);
-                }
-                break;
-            case 'editar':
-                if (isset($_GET['id'])) {
-                    $controller->mostrarFormulario($_GET['id']);
-                }
-                break;
-            default:
-                $controller->listarCursos();
-                break;
-        }
-    } */ else {
-    $controller->listarCursos();
-}
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//    $controller->manejarFormulario();
+//} /* elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//    if (isset($_GET['action'])) {
+//        switch ($_GET['action']) {
+//            case 'eliminar':
+//                if (isset($_GET['id'])) {
+//                    $controller->eliminarComentario($_GET['id']);
+//                }
+//                break;
+//            case 'editar':
+//                if (isset($_GET['id'])) {
+//                    $controller->mostrarFormulario($_GET['id']);
+//                }
+//                break;
+//            default:
+//                $controller->listarCursos();
+//                break;
+//        }
+//    } */ else {
+//    $controller->listarCursos();
+//}
 /* } */

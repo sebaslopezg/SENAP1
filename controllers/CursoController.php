@@ -1,4 +1,5 @@
 <?php
+
 require_once 'models/CursoModel.php';
 class CursoController
 {
@@ -12,7 +13,7 @@ class CursoController
     public function listarCursos()
     {
         $cursos = $this->cursoModel->obtenerCursos();
-        include './views/CursosView.php'; // Vista para mostrar comentarios
+        include 'views/CursosView.php'; // Vista para mostrar comentarios
     }
 
     /* public function mostrarFormulario($id = null)
@@ -48,3 +49,4 @@ class CursoController
     }
 
 }
+

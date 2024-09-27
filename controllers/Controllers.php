@@ -1,8 +1,11 @@
 <?php
-
 require_once 'models/aprendicesModel.php';
 
 class Controllers{
+
+    public function __construct() {
+        $this->aprendicesModel = new AprendicesModel();
+    }
 
     function home(){
         require 'views/home.php';
@@ -10,22 +13,46 @@ class Controllers{
 
     //sebas
     function aprendices(){
-        $this->aprendicesModel = new AprendicesModel();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_GET['accion'] === 'guardar') {
+                $this->aprendicesModel->agregarAprendiz(
+                    $_POST['documentoAprendiz'],
+                    $_POST['nombreAprendiz'],
+                    $_POST['apellidoAprendiz'],
+                    $_POST['generoAprendiz'],
+                    $_POST['fechaNacimientoAprendiz'],
+                    $_POST['telefonoAprendiz'],
+                    $_POST['correoAprendiz']
+                );
+            }
+            if ($_GET['accion'] === 'editar') {
+                $this->aprendicesModel->actualizarAprendiz(
+                    $_POST['documentoAprendiz'],
+                    $_POST['nombreAprendiz'],
+                    $_POST['apellidoAprendiz'],
+                    $_POST['generoAprendiz'],
+                    $_POST['fechaNacimientoAprendiz'],
+                    $_POST['telefonoAprendiz'],
+                    $_POST['correoAprendiz']
+                );
+            }
+        }
+
         $arrAprendices = $this->aprendicesModel->mostrarAprendices();
-        require 'views/aprendices.php';
+        require 'views/aprendicesView.php';
         //print_r($arrAprendices);
     }
 
     function guardarAprendices(){
-        $this->aprendicesModel = new AprendicesModel();
-        
         echo "de debe GUARDAR AAAA";
     }
 
     function cursos(){
-        require 'views/cursos.php';
+        require 'views/CursosView.php';
     }
 
 }
+
+
 
 ?>
