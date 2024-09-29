@@ -2,6 +2,7 @@
 require_once 'controllers/AprendicesController.php';
 require_once 'controllers/CursoController.php';
 require_once 'controllers/AsignarController.php';
+require_once 'controllers/HomeController.php';
 
 //helpers
 
@@ -16,7 +17,8 @@ function header_template(){
     require_once($view_header);  
 }
 
-$controllers = new AprendicesController();
+$home = new Home();
+$aprendicesController = new AprendicesController();
 $cursosController = new CursoController();
 $asignarController = new AsignarController();
 
@@ -26,10 +28,10 @@ if (count($_GET) > 0) {
 
     switch ($_GET['call']) {
         case 'home':
-            $controllers->home();
+            $home->home();
             break;
         case 'aprendices':
-            $controllers->aprendices();
+            $aprendicesController->aprendices();
             break;
         case 'cursos':
             $cursosController->listarCursos();
@@ -40,12 +42,6 @@ if (count($_GET) > 0) {
             // 3 Case para las asignaciones :: mostrar,add 1 curso muchos aprendices, add 1 aprendiz muchos cursos
         case 'asignaciones':
             $asignarController->mostrar();
-            break;
-        case 'asignarAprendices': // add 1 curso muchos aprendices
-
-            break;
-        case 'asignarCursos': // add 1 aprendiz muchos cursos
-
             break;
         default:
             # code...

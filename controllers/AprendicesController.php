@@ -9,12 +9,6 @@ class AprendicesController
         $this->aprendicesModel = new AprendicesModel();
     }
 
-    function home()
-    {
-        require 'views/home.php';
-    }
-
-    //sebas
     function aprendices()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

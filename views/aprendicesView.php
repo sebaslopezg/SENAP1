@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cursos</title>
+  <title>Aprendices</title>
 
   <?php header_template(); ?>
 </head>
@@ -42,7 +42,7 @@
                 data-bs-toggle="modal"
                 data-bs-target="#modalAprendices">
                 <i class="bi bi-plus-circle"></i>
-                Agregar curso
+                Agregar Aprendiz
               </button>
 
               <!-- Modal -->
@@ -75,8 +75,8 @@
                             type="text"
                             name="nombreAprendiz"
                             id="nombreAprendiz"
-                            placeholder="Nombre del curso"
-                            aria-label="Nombre del curso"
+                            placeholder="Nombre del Aprendiz"
+                            aria-label="Nombre del Aprendiz"
                             required />
                         </div>
                         <br />

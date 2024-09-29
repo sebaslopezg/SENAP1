@@ -270,6 +270,7 @@
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Curso</th>
+                        <th>Acción</th>
                       </tr>
                     </thead>
 
@@ -281,6 +282,7 @@
                             <td><?php echo htmlspecialchars($asignacion['nombre_Apr']); ?></td>
                             <td><?php echo htmlspecialchars($asignacion['apellido_Apr']); ?></td>
                             <td><?php echo htmlspecialchars($asignacion['nombre_Cur']); ?></td>
+                            <td><?= "Eliminar" ?></td>
 
                           </tr>
                         <?php endforeach; ?>
