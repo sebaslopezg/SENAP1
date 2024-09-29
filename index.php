@@ -1,8 +1,7 @@
 <?php
-require_once 'controllers/ComentarioController.php';
 require_once 'controllers/Controllers.php';
 require_once 'controllers/CursoController.php';
-require_once 'controllers/AsignarCursos.php';
+require_once 'controllers/AsignarController.php';
 
 //helpers
 
@@ -14,7 +13,7 @@ function sideBar()
 
 $controllers = new Controllers();
 $cursosController = new CursoController();
-$AsignarCursos = new AsignarCursos();
+$asignarController = new AsignarController();
 
 //print_r($_GET);
 
@@ -29,11 +28,28 @@ if (count($_GET) > 0) {
             break;
         case 'cursos':
             $cursosController->listarCursos();
-
-        case 'AsignarCursos':
-            $AsignarCursos->mostrar();
             break;
-
+        case 'cursosAcciones':
+            $cursosController->manejarFormulario();
+            break;
+            // 3 Case para las asignaciones :: mostrar,add 1 curso muchos aprendices, add 1 aprendiz muchos cursos
+        case 'asignaciones':
+            $asignarController->mostrar();
+            break;
+        case 'asignarAprendices': // add 1 curso muchos aprendices
+            if (isset($_POST['arrayAprendices']) && isset($_POST['cursoSeleccionado'])) {
+                $asignarController->agregarCursoAprendices($_POST['arrayAprendices'], $_POST['cursoSeleccionado']);
+            } else {
+                echo "Faltan datos en el formulario.";
+            }
+            break;
+        case 'asignarCursos': // add 1 aprendiz muchos cursos
+            if (isset($_POST['aprendizSeleccionado']) && isset($_POST['arrayCursos'])) {
+                $asignarController->agregarCursoAprendices($_POST['aprendizSeleccionado'], $_POST['arrayCursos']);
+            } else {
+                echo "Faltan datos en el formulario.";
+            }
+            break;
         default:
             # code...
             break;
