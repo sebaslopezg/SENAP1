@@ -39,7 +39,7 @@ class AsignarModel
     {
         $consulta = "SELECT aprendices.nombre_Apr, aprendices.apellido_Apr, aprendices.num_Doc_Apr, cursos.nombre_Cur 
                      FROM aprendices_has_cursos 
-                     JOIN aprendices ON aprendices.num_Doc_Apr = aprendices_has_cursos.Aprendices_num_Doc_Apr
+                     JOIN aprendices ON aprendices.id_aprendiz = aprendices_has_cursos.Aprendices_id_aprendiz
                      JOIN cursos ON cursos.id_Cur = aprendices_has_cursos.Cursos_id_Cur";
 
         $resultado = $this->db->efectuarConsulta($consulta);
@@ -53,7 +53,7 @@ class AsignarModel
 
     public function agregarAsignacion($numDoc, $idCurso)
     {
-        $consulta = "INSERT INTO aprendices_has_cursos (Aprendices_num_Doc_Apr, Cursos_id_Cur) VALUES (?, ?)";
+        $consulta = "INSERT INTO aprendices_has_cursos (Aprendices_id_aprendiz, Cursos_id_Cur) VALUES (?, ?)";
         return $this->db->efectuarConsulta($consulta, [$numDoc, $idCurso], 'ss');
     }
 
