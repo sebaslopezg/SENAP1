@@ -5,54 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
-    <!-- CSS de AdminLTE y Bootstrap -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css" />
-    <!-- Font-Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Estilos personalizados -->
-    <style>
-        .welcome {
-            background: #f4f6f9;
-            padding: 3vh 5vw;
-        }
 
-        .small-box {
-            transition: transform 0.3s;
-        }
+    <?php header_template(); ?>
 
-        .small-box:hover {
-            transform: scale(1.04);
-        }
-
-        /* Ocultar el texto del logotipo cuando el menú esté contraído */
-        .sidebar-collapse .brand-link h6 {
-            display: none;
-            /* Oculta el texto "Sistema de Gestión" */
-        }
-
-        /* Ocultar el texto del usuario cuando el menú esté contraído */
-        .sidebar-collapse .user-panel .info span {
-            display: none;
-            /* Oculta el texto "Usuario" */
-        }
-
-        /* Mostrar los iconos cuando el menú esté contraído */
-        .sidebar-collapse .brand-link .nav-icon,
-        .sidebar-collapse .user-panel .icon {
-            display: inline-block;
-        }
-
-        /* Mostrar el texto normalmente cuando el menú esté expandido */
-        .brand-link h6,
-        .user-panel .info span {
-            display: inline-block;
-            /* Asegura que el texto esté visible */
-        }
-    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -68,56 +23,7 @@
             <span style="margin-left: 1%">Inicio</span>
         </nav>
 
-        <!-- Menú lateral -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Logotipo -->
-            <div class="brand-link" style="text-align: center">
-                <i class="nav-icon fas fa-chart-line" style="padding-right: 2%"></i>
-                <h6>Sistema de Gestión</h6>
-            </div>
-            <!-- Menú -->
-            <div class="sidebar">
-                <!-- Perfil de usuario -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="justify-content: center">
-                    <div class="icon">
-                        <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%"></i>
-                    </div>
-                    <div class="info">
-                        <span style="color: white">Administrador</span>
-                    </div>
-                </div>
-
-                <!-- Navegación -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-home"></i>
-                                <p>Inicio</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?call=aprendices" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>Aprendices</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?call=cursos" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>Cursos</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?call=AsignarCursos" class="nav-link">
-                                <i class="nav-icon fas fa-tasks"></i>
-                                <p>Asignar cursos</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
+        <?php sideBar(); ?>
 
         <!-- Contenido de la página -->
         <div class="content-wrapper">

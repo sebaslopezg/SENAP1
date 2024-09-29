@@ -12,6 +12,11 @@ function sideBar()
     require_once($view_sidebar);
 }
 
+function header_template(){
+    $view_header = "Views/header.php";
+    require_once($view_header);  
+}
+
 $controllers = new Controllers();
 $cursosController = new CursoController();
 $AsignarCursos = new AsignarCursos();
