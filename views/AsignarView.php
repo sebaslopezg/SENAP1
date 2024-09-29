@@ -6,44 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Asignar Cursos</title>
 
-  <!-- AdminLTE CSS -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" />
-
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-    crossorigin="anonymous" />
-
-  <!-- Bootstrap Icons-->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <!-- Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
-  <!-- Google Font: Source Sans Pro -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
-
-
-  <!-- DataTables -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css" />
+  <?php header_template(); ?>
 
   <!-- Estilos personalizados -->
   <style>
@@ -88,58 +51,7 @@
     </nav>
     <!-- /.navbar -->
 
-    <!-- Menú lateral -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Logotipo -->
-      <div class="brand-link" style="text-align: center">
-        <i class="nav-icon fas fa-chart-line" style="padding-right: 2%;"></i>
-        <h6>Sistema de Gestión</h6>
-      </div>
-
-      <!-- Menú - Sidebar -->
-      <div class="sidebar">
-        <!-- Perfil de usuario -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="justify-content: center">
-          <div class="icon">
-            <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%;"></i>
-          </div>
-          <div class="info">
-            <span style="color: white">Administrador</span>
-          </div>
-        </div>
-
-        <!-- Navegación -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
-            <li class="nav-item">
-              <a href="index.php?call=home" class="nav-link">
-                <i class="nav-icon fas fa-home"></i>
-                <p>Inicio</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="index.php?call=aprendices" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>Aprendices</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="index.php?call=cursos" class="nav-link">
-                <i class="nav-icon fas fa-book"></i>
-                <p>Cursos</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="nav-icon fas fa-tasks"></i>
-                <p>Asignaciones</p>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <!-- /.sidebar -->
-    </aside>
+    <?php sideBar(); ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

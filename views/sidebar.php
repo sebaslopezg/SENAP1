@@ -41,7 +41,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?call=AsignarCursos" class="nav-link">
+                            <a href="index.php?call=asignaciones" class="nav-link <?= $_GET['call'] == 'asignaciones' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-tasks"></i>
                                 <p>Asignar cursos</p>
                             </a>
@@ -50,4 +50,3 @@
                 </nav>
             </div>
         </aside>
-        <?= $_GET['call'] ?>
