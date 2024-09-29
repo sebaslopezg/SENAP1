@@ -1,7 +1,7 @@
 <?php
 require_once 'models/aprendicesModel.php';
 
-class Controllers
+class AprendicesController
 {
 
     public function __construct()

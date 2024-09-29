@@ -122,7 +122,7 @@
                                   role="tabpanel"
                                   aria-labelledby="custom-tabs-two-home-tab">
 
-                                  <form action="index.php?call=asignarAprendices" method="post">
+                                  <form action="index.php?call=asignaciones&accion=asignarAprendices" method="post">
                                     <div class="row">
 
                                       <div class="col-12 col-sm-1"></div>
@@ -130,7 +130,7 @@
 
                                         <?php foreach ($aprendices as $aprendiz): ?>
                                           <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="arrayAprendices[]" value="<?php echo $aprendiz['num_Doc_Apr']; ?>" id="flexCheckChecked">
+                                            <input class="form-check-input" type="checkbox" name="arrayAprendices[]" value="<?php echo $aprendiz['id_aprendiz']; ?>" id="flexCheckChecked">
                                             <label class="form-check-label" for="flexCheckChecked">
 
                                               <?php echo $aprendiz['nombre_Apr'];
@@ -179,14 +179,14 @@
                                   role="tabpanel"
                                   aria-labelledby="custom-tabs-two-profile-tab">
 
-                                  <form action="index.php?call=asignarCursos" method="post">
+                                  <form action="index.php?call=asignaciones&accion=asignarCursos" method="post">
                                     <div class="row">
                                       <div class="col-12 col-sm-1"></div>
                                       <div class="col-12 col-sm-5">
 
                                         <?php foreach ($aprendices as $aprendiz): ?>
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="aprendizSeleccionado" value="<?php echo $aprendiz['num_Doc_Apr']; ?>" id="flexCheckChecked">
+                                            <input class="form-check-input" type="radio" name="aprendizSeleccionado" value="<?php echo $aprendiz['id_aprendiz']; ?>" id="flexCheckChecked">
                                             <label class="form-check-label" for="flexCheckChecked">
 
                                               <?php echo $aprendiz['nombre_Apr'];

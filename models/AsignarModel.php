@@ -51,10 +51,10 @@ class AsignarModel
         return $asignaciones;
     }
 
-    public function agregarAsignacion($numDoc, $idCurso)
+    public function agregarAsignacion($idAprendiz, $idCurso)
     {
         $consulta = "INSERT INTO aprendices_has_cursos (Aprendices_id_aprendiz, Cursos_id_Cur) VALUES (?, ?)";
-        return $this->db->efectuarConsulta($consulta, [$numDoc, $idCurso], 'ss');
+        return $this->db->efectuarConsulta($consulta, [$idAprendiz, $idCurso], 'ss');
     }
 
     public function __destruct()

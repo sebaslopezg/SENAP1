@@ -10,8 +10,26 @@ class AsignarController
         $this->asignarModel = new AsignarModel();
     }
 
-    function mostrar()
+    public function mostrar()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_GET['accion'] === 'asignarAprendices') {
+                if (isset($_POST['arrayAprendices']) && isset($_POST['cursoSeleccionado'])) {
+                    $this->agregarCursoAprendices($_POST['arrayAprendices'], $_POST['cursoSeleccionado']);
+                } else {
+                    echo "Faltan datos en el formulario.";
+                }  
+            }
+    
+            if ($_GET['accion'] === 'asignarCursos') {
+                if (isset($_POST['aprendizSeleccionado']) && isset($_POST['arrayCursos'])) {
+                    $this->agregarAprendizCursos($_POST['aprendizSeleccionado'], $_POST['arrayCursos']);
+                } else {
+                    echo "Faltan datos en el formulario.";
+                }
+            }
+        }
+
         $aprendices = $this->asignarModel->obtenerAprendices();
         $cursos = $this->asignarModel->obtenerCursos();
         $asignaciones = $this->asignarModel->mostrarAsignaciones();
