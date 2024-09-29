@@ -10,9 +10,6 @@
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" />
-  <!-- <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css" /> -->
 
   <!--Bootstrap-->
   <link
@@ -32,10 +29,6 @@
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
 
   <!-- Font Awesome Icons -->
-  <!-- <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> -->
-
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -43,13 +36,14 @@
   <!-- DataTables -->
   <link
     rel="stylesheet"
-    href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" />
+    href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
   <link
     rel="stylesheet"
-    href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css" />
+    href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css" />
   <link
     rel="stylesheet"
-    href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css" />
+    href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap5.min.css" />
+
 
   <!-- Estilos personalizados -->
   <style>
@@ -125,7 +119,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="index.php?call=aprendices" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>Aprendices</p>
               </a>
@@ -137,9 +131,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="index.php?call=asignaciones" class="nav-link">
                 <i class="nav-icon fas fa-tasks"></i>
-                <p>Asignar cursos</p>
+                <p>Asignaciones</p>
               </a>
             </li>
           </ul>
@@ -190,7 +184,7 @@
                     </div>
 
                     <!-- Inicio del Formulario -->
-                    <form action="index.php" method="post">
+                    <form action="index.php?call=cursosAcciones&accion=agregar" method="post">
                       <!--Inicio contenido de la modal-->
                       <div class="modal-body">
                         <input
@@ -307,7 +301,7 @@
                                     </div>
 
                                     <!-- Formulario de Editar-->
-                                    <form action="index.php" method="post">
+                                    <form action="index.php?call=cursosAcciones&accion=actualizar" method="post">
                                       <div class="modal-body text-start">
                                         <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
 
@@ -350,20 +344,30 @@
                     </tbody>
                   </table>
                 </div>
-
                 <!-- /.card-body -->
+
               </div>
               <!-- /.card -->
+
             </div>
             <!-- /.col -->
+
           </div>
           <!-- /.row -->
+
         </div>
         <!-- /.container-fluid -->
+
       </section>
       <!-- /.content -->
+
     </div>
     <!-- /.content-wrapper -->
+
+    <!-- Pie de página -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2024.</strong> Todos los derechos reservados.
+    </footer>
   </div>
 
   <!-- jQuery -->
@@ -375,46 +379,28 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <!-- Bootstrap 4 -->
-  <!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-
   <!-- DataTables  & Plugins -->
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <!-- <script src="./plugins/datatables/jquery.dataTables.min.js"></script> -->
 
-  <!-- <script src="https://cdn.datatables.net/bs4/1.11.5/js/dataTables.bootstrap4.min.js"></script> -->
-  <!-- <script src="./js/dataTables.bootstrap4.min.js"></script> -->
-  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
-
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
   <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-  <!-- <script src="./plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
-
-  <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
-  <!-- <script src="./plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
 
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap5.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
 
-  <!-- <script src="./plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="./plugins/jszip/jszip.min.js"></script>
-    <script src="./plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="./plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.colVis.min.js"></script> -->
   <!-- AdminLTE -->
   <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 
-  <!-- AdminLTE for demo purposes -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/demo.js"></script> -->
   <!-- Page specific script -->
   <script>
     $(function() {

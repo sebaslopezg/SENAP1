@@ -79,13 +79,13 @@
                         <div class="col-lg-4 col-6">
                             <div class="small-box" style="color: white; background-color: #e67e22">
                                 <div class="inner">
-                                    <h3>Asignar cursos</h3>
-                                    <p>Asigna cursos para cada aprendiz.</p>
+                                    <h3>Asignaciones</h3>
+                                    <p>Asigna cursos para cada aprendiz o aprendices para cada curso.</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-tasks"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="index.php?call=asignaciones" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
