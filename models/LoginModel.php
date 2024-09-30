@@ -13,9 +13,10 @@ class LoginModel{
     }
 
     //crear validar
-    function mostrarAdmins(){
-        $consulta = "SELECT * FROM admin";
-        $resultado = $this->db->efectuarConsulta($consulta);
+    function comparar($usuario, $pass){
+        $consulta = "SELECT usuario_Adm, pass_Adm FROM `admin` WHERE usuario_Adm = ? AND pass_Adm = ?";
+
+        $resultado = $this->db->efectuarConsulta($consulta, [$usuario, $pass], 'ss');
 
         $admins = [];
         while ($fila = mysqli_fetch_assoc($resultado)) {

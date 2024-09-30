@@ -4,6 +4,7 @@ require_once 'controllers/CursoController.php';
 require_once 'controllers/AsignarController.php';
 require_once 'controllers/HomeController.php';
 require_once 'controllers/Admins.php';
+require_once 'controllers/Login.php';
 
 //helpers
 
@@ -24,38 +25,46 @@ $aprendicesController = new AprendicesController();
 $cursosController = new CursoController();
 $asignarController = new AsignarController();
 $admins = new Admins();
+$loginController = new Login();
+$login = false;
 
 //print_r($_GET);
 
-if (count($_GET) > 0) {
+if ($login) {
+    if (count($_GET) > 0) {
 
-    switch ($_GET['call']) {
-        case 'home':
-            $home->home();
-            break;
-        case 'aprendices':
-            $aprendicesController->aprendices();
-            break;
-        case 'cursos':
-            $cursosController->listarCursos();
-            break;
-        case 'cursosAcciones':
-            $cursosController->manejarFormulario();
-            break;
-            // 3 Case para las asignaciones :: mostrar,add 1 curso muchos aprendices, add 1 aprendiz muchos cursos
-        case 'asignaciones':
-            $asignarController->mostrar();
-            break;
-        case 'admins':
-            $admins->getAdmins();
-            break;
-        default:
-            # code...
-            break;
-    }
-} else {
-    header('Location: index.php?call=home');
+        switch ($_GET['call']) {
+            case 'home':
+                $home->home();
+                break;
+            case 'aprendices':
+                $aprendicesController->aprendices();
+                break;
+            case 'cursos':
+                $cursosController->listarCursos();
+                break;
+            case 'cursosAcciones':
+                $cursosController->manejarFormulario();
+                break;
+                // 3 Case para las asignaciones :: mostrar,add 1 curso muchos aprendices, add 1 aprendiz muchos cursos
+            case 'asignaciones':
+                $asignarController->mostrar();
+                break;
+            case 'admins':
+                $admins->getAdmins();
+                break;
+            default:
+                header('Location: index.php?call=home');
+                break;
+        }
+    } else {
+        header('Location: index.php?call=home');
+    } 
+}else{
+    $loginController->getLogin();
 }
+
+
 
 /* function msg($posicion, $icono, $showConfirmButton){
 "<script>Swal.fire({

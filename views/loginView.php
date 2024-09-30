@@ -25,7 +25,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Inicia sesión para comenzar</p>
 
-                <form action="tu_accion_de_login" method="post">
+                <form action="index.php" method="post">
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" id="email" placeholder="Correo electrónico" required>
                         <div class="input-group-append">
