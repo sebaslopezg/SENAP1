@@ -233,7 +233,7 @@
                         <th>Correo</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Acciones</th>
+                        <th>Acción</th>
                       </tr>
                     </thead>
 
