@@ -64,7 +64,7 @@
               <h1>Admins</h1>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-4">
               <!-- Inicio modal -->
               <button
                 type="button"
@@ -197,13 +197,13 @@
               <!--Fin modal-->
             </div>
 
-            <div class="col-sm-9" style="padding-right: 1%">
+          </div>
+          <div class="col-sm-5" style="padding-right: 1%">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item active">Cursos</li>
-                <li class="breadcrumb-item"><a href="index.php?call=home">Inicio</a></li>
+                <li class="breadcrumb-item active">Home</li>
+                <li class="breadcrumb-item"><a href="index.php?call=admins">Admins</a></li>
               </ol>
             </div>
-          </div>
         </div>
         <!-- /.container-fluid -->
       </section>
