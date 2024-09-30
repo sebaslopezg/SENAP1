@@ -27,8 +27,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `aprendices`
 --
 
+CREATE Database `aprendices`;
+use `aprendices`;
+
 CREATE TABLE `aprendices` (
-  `id_aprendiz` int(5) NOT NULL,
+  `id_aprendiz` int(11) NOT NULL,
   `num_Doc_Apr` int(11) NOT NULL,
   `nombre_Apr` varchar(50) NOT NULL,
   `apellido_Apr` varchar(50) NOT NULL,
