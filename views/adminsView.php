@@ -124,7 +124,7 @@
                           <br />
                           <input
                             class="form-control"
-                            type="text"
+                            type="password"
                             name="password"
                             id="password"
                             placeholder="Contraseña"
