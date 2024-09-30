@@ -47,6 +47,15 @@
             <!-- Contenido principal -->
             <section class="content welcome">
                 <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                asdsa
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

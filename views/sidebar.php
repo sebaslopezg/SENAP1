@@ -46,6 +46,13 @@
                                 <p>Asignar cursos</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="index.php?call=usuarios" class="nav-link <?= $_GET['call'] == 'usuarios' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>Usuarios</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>

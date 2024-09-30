@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2024 a las 14:02:06
+-- Tiempo de generación: 30-09-2024 a las 14:37:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -21,9 +21,9 @@ SET time_zone = "+00:00";
 -- Base de datos: `db_aprendices`
 --
 
--- --------------------------------------------------------
+CREATE database `db_aprendices`;
+use `db_aprendices`;
 
---
 -- Estructura de tabla para la tabla `admin`
 --
 
@@ -35,6 +35,7 @@ CREATE TABLE `admin` (
   `nombre_Adm` varchar(45) NOT NULL,
   `apellido_Adm` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -54,41 +55,9 @@ CREATE TABLE `aprendices` (
   `fecha_Creacion_Apr` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `aprendices_has_cursos`
---
-
-CREATE TABLE `aprendices_has_cursos` (
-  `Aprendices_id_aprendiz` int(11) NOT NULL,
-  `Cursos_id_Cur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cursos`
---
-
-CREATE TABLE `cursos` (
-  `id_Cur` int(11) NOT NULL,
-  `nombre_Cur` varchar(45) NOT NULL,
-  `descripcion_Cur` varchar(255) NOT NULL,
-  `fecha_Creacion_Cur` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_Adm`),
-  ADD UNIQUE KEY `usuario_Adm` (`usuario_Adm`),
-  ADD UNIQUE KEY `correo_Adm` (`correo_Adm`);
 
 --
 -- Indices de la tabla `aprendices`
@@ -97,56 +66,14 @@ ALTER TABLE `aprendices`
   ADD PRIMARY KEY (`id_aprendiz`);
 
 --
--- Indices de la tabla `aprendices_has_cursos`
---
-ALTER TABLE `aprendices_has_cursos`
-  ADD PRIMARY KEY (`Aprendices_id_aprendiz`,`Cursos_id_Cur`),
-  ADD KEY `fk_Aprendices_has_Cursos_Cursos1_idx` (`Cursos_id_Cur`),
-  ADD KEY `fk_Aprendices_has_Cursos_Aprendices_idx` (`Aprendices_id_aprendiz`);
-
---
--- Indices de la tabla `cursos`
---
-ALTER TABLE `cursos`
-  ADD PRIMARY KEY (`id_Cur`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id_Adm` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `aprendices`
 --
 ALTER TABLE `aprendices`
-  MODIFY `id_aprendiz` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `cursos`
---
-ALTER TABLE `cursos`
-  MODIFY `id_Cur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `aprendices`
---
-ALTER TABLE `aprendices`
-  ADD CONSTRAINT `aprendices_ibfk_1` FOREIGN KEY (`id_aprendiz`) REFERENCES `aprendices_has_cursos` (`Aprendices_id_aprendiz`);
-
---
--- Filtros para la tabla `aprendices_has_cursos`
---
-ALTER TABLE `aprendices_has_cursos`
-  ADD CONSTRAINT `fk_Aprendices_has_Cursos_Cursos1` FOREIGN KEY (`Cursos_id_Cur`) REFERENCES `cursos` (`id_Cur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `id_aprendiz` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
