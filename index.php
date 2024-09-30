@@ -13,9 +13,10 @@ function sideBar()
     require_once($view_sidebar);
 }
 
-function header_template(){
+function header_template()
+{
     $view_header = "Views/header.php";
-    require_once($view_header);  
+    require_once($view_header);
 }
 
 $home = new Home();
@@ -47,6 +48,7 @@ if (count($_GET) > 0) {
             break;
         case 'admins':
             $admins->getAdmins();
+            break;
         default:
             # code...
             break;
@@ -54,3 +56,14 @@ if (count($_GET) > 0) {
 } else {
     header('Location: index.php?call=home');
 }
+
+/* function msg($posicion, $icono, $showConfirmButton){
+"<script>Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+                });
+            </script>";
+} */

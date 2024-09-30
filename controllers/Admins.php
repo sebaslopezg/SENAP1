@@ -1,7 +1,7 @@
-<?php 
+<?php
 require_once 'models/adminsModel.php';
-class Admins{
-
+class Admins
+{
     private $adminModel;
 
     public function __construct()
@@ -9,8 +9,8 @@ class Admins{
         $this->adminModel = new AdminsModel();
     }
 
-    public function getAdmins(){
-
+    public function getAdmins()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_GET['accion'] === 'guardar') {
                 $this->adminModel->agregarAdmin(

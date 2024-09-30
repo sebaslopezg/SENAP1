@@ -18,9 +18,9 @@ class AsignarController
                     $this->agregarCursoAprendices($_POST['arrayAprendices'], $_POST['cursoSeleccionado']);
                 } else {
                     echo "Faltan datos en el formulario.";
-                }  
+                }
             }
-    
+
             if ($_GET['accion'] === 'asignarCursos') {
                 if (isset($_POST['aprendizSeleccionado']) && isset($_POST['arrayCursos'])) {
                     $this->agregarAprendizCursos($_POST['aprendizSeleccionado'], $_POST['arrayCursos']);
