@@ -4,6 +4,8 @@ require_once 'models/aprendicesModel.php';
 class AprendicesController
 {
 
+    private $aprendicesModel;
+
     public function __construct()
     {
         $this->aprendicesModel = new AprendicesModel();
