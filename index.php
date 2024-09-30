@@ -3,6 +3,7 @@ require_once 'controllers/AprendicesController.php';
 require_once 'controllers/CursoController.php';
 require_once 'controllers/AsignarController.php';
 require_once 'controllers/HomeController.php';
+require_once 'controllers/Usuarios.php';
 
 //helpers
 
@@ -21,6 +22,7 @@ $home = new Home();
 $aprendicesController = new AprendicesController();
 $cursosController = new CursoController();
 $asignarController = new AsignarController();
+$usuarios = new Usuarios();
 
 //print_r($_GET);
 
@@ -43,6 +45,8 @@ if (count($_GET) > 0) {
         case 'asignaciones':
             $asignarController->mostrar();
             break;
+        case 'usuarios':
+            $usuarios->getUsuarios();
         default:
             # code...
             break;
