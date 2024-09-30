@@ -18,7 +18,7 @@
 <body class="hold-transition login-page" style="background-color: #D3D3D3;">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Admin</b>LTE</a>
+            <b>Admin</b>LTE
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -27,7 +27,7 @@
 
                 <form action="index.php" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Correo electrónico" required>
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Usuario" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
