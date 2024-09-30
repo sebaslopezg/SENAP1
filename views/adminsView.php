@@ -60,6 +60,7 @@
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
+
             <div class="col-sm-1" style="text-align: center;">
               <h1>Admins</h1>
             </div>
@@ -189,6 +190,7 @@
                             Agregar
                           </button>
                         </div>
+                      </div>
                     </form>
 
                   </div>
@@ -197,13 +199,14 @@
               <!--Fin modal-->
             </div>
 
-
             <div class="col-sm-9">
               <ol class="breadcrumb float-sm-right" style="padding-right: 1%">
                 <li class="breadcrumb-item active">Admins</li>
                 <li class="breadcrumb-item"><a href="index.php?call=home">Inicio</a></li>
               </ol>
             </div>
+
+
 
           </div>
         </div>

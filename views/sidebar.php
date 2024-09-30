@@ -47,7 +47,7 @@
 
                 <li class="nav-item">
                     <a href="index.php?call=admins" class="nav-link <?= $_GET['call'] == 'usuarios' ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-tasks"></i>
+                        <i class="fas fa-user-shield"></i>
                         <p>Admins</p>
                     </a>
                 </li>
