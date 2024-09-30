@@ -4,25 +4,26 @@ require_once 'controllers/CursoController.php';
 require_once 'controllers/AsignarController.php';
 require_once 'controllers/HomeController.php';
 
+
 //helpers
 
 function sideBar()
 {
-    $view_sidebar = "Views/sidebar.php";
-    require_once($view_sidebar);
+    require_once('Views/sidebar.php');
 }
 
 function header_template(){
-    $view_header = "Views/header.php";
-    require_once($view_header);  
+    require_once('Views/header.php');  
+}
+
+function footer_template(){
+    require_once 'Views/footer.php';
 }
 
 $home = new Home();
 $aprendicesController = new AprendicesController();
 $cursosController = new CursoController();
 $asignarController = new AsignarController();
-
-//print_r($_GET);
 
 if (count($_GET) > 0) {
 
@@ -44,39 +45,9 @@ if (count($_GET) > 0) {
             $asignarController->mostrar();
             break;
         default:
-            # code...
+
             break;
     }
 } else {
-    $controllers->home();
+    header('Location: index.php?call=home');
 }
-
-
-// codigo anterior
-
-//$controller = new ComentarioController();
-
-// Manejo de solicitudes POST para formularios
-//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//    $controller->manejarFormulario();
-//} /* elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//    if (isset($_GET['action'])) {
-//        switch ($_GET['action']) {
-//            case 'eliminar':
-//                if (isset($_GET['id'])) {
-//                    $controller->eliminarComentario($_GET['id']);
-//                }
-//                break;
-//            case 'editar':
-//                if (isset($_GET['id'])) {
-//                    $controller->mostrarFormulario($_GET['id']);
-//                }
-//                break;
-//            default:
-//                $controller->listarCursos();
-//                break;
-//        }
-//    } */ else {
-//    $controller->listarCursos();
-//}
-/* } */

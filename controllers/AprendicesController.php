@@ -13,26 +13,46 @@ class AprendicesController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_GET['accion'] === 'guardar') {
-                $this->aprendicesModel->agregarAprendiz(
-                    $_POST['documentoAprendiz'],
-                    $_POST['nombreAprendiz'],
-                    $_POST['apellidoAprendiz'],
-                    $_POST['generoAprendiz'],
-                    $_POST['fechaNacimientoAprendiz'],
-                    $_POST['telefonoAprendiz'],
-                    $_POST['correoAprendiz']
-                );
+                if (
+                    isset($_POST['documentoAprendiz'])&&
+                    isset($_POST['nombreAprendiz'])&&
+                    isset($_POST['apellidoAprendiz'])&&
+                    isset($_POST['generoAprendiz'])&&
+                    isset($_POST['fechaNacimientoAprendiz'])&&
+                    isset($_POST['telefonoAprendiz'])&&
+                    isset($_POST['correoAprendiz'])) {
+                        $this->aprendicesModel->agregarAprendiz(
+                            filter_var($_POST['documentoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['nombreAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['apellidoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['generoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['fechaNacimientoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['telefonoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['correoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)    
+                        );
+                }
+
             }
             if ($_GET['accion'] === 'editar') {
-                $this->aprendicesModel->actualizarAprendiz(
-                    $_POST['documentoAprendiz'],
-                    $_POST['nombreAprendiz'],
-                    $_POST['apellidoAprendiz'],
-                    $_POST['generoAprendiz'],
-                    $_POST['fechaNacimientoAprendiz'],
-                    $_POST['telefonoAprendiz'],
-                    $_POST['correoAprendiz']
-                );
+                if (
+                    isset($_POST['documentoAprendiz'])&&
+                    isset($_POST['nombreAprendiz'])&&
+                    isset($_POST['apellidoAprendiz'])&&
+                    isset($_POST['generoAprendiz'])&&
+                    isset($_POST['fechaNacimientoAprendiz'])&&
+                    isset($_POST['telefonoAprendiz'])&&
+                    isset($_POST['correoAprendiz'])) {
+                        $this->aprendicesModel->actualizarAprendiz(
+                            filter_var($_POST['documentoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['nombreAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['apellidoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['generoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['fechaNacimientoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['telefonoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                            filter_var($_POST['correoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
+                        );
+                }
+
             }
             header('Location: index.php?call=aprendices');
             exit();
@@ -41,15 +61,5 @@ class AprendicesController
         $arrAprendices = $this->aprendicesModel->mostrarAprendices();
         require 'views/aprendicesView.php';
         //print_r($arrAprendices);
-    }
-
-    function guardarAprendices()
-    {
-        echo "de debe GUARDAR AAAA";
-    }
-
-    function cursos()
-    {
-        require 'views/CursosView.php';
     }
 }
