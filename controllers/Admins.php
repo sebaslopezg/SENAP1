@@ -1,16 +1,16 @@
 <?php 
-require_once 'models/adminModel.php';
+require_once 'models/adminsModel.php';
 class Admins{
 
     private $adminModel;
 
     public function __construct()
     {
-        $this->adminModel = new AdminModel();
+        $this->adminModel = new AdminsModel();
     }
 
     public function getAdmins(){
-        $admins = $this->cursoModel->mostrarAdmins();
+        $admins = $this->adminModel->mostrarAdmins();
         require_once 'views/adminsView.php';
     }
 }

@@ -2,7 +2,7 @@
 
 require_once 'MYSQL.php'; 
 
-class AprendicesModel{
+class AdminsModel{
 
     private $db;
 
