@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 29, 2024 at 07:26 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-09-2024 a las 14:02:06
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,17 +18,29 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_aprendices`
+-- Base de datos: `db_aprendices`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aprendices`
+-- Estructura de tabla para la tabla `admin`
 --
 
-CREATE Database `aprendices`;
-use `aprendices`;
+CREATE TABLE `admin` (
+  `id_Adm` int(11) NOT NULL,
+  `usuario_Adm` varchar(45) NOT NULL,
+  `pass_Adm` varchar(45) NOT NULL,
+  `correo_Adm` varchar(45) NOT NULL,
+  `nombre_Adm` varchar(45) NOT NULL,
+  `apellido_Adm` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `aprendices`
+--
 
 CREATE TABLE `aprendices` (
   `id_aprendiz` int(11) NOT NULL,
@@ -40,31 +52,23 @@ CREATE TABLE `aprendices` (
   `telefono_Apr` varchar(45) DEFAULT NULL,
   `correo_Apr` varchar(50) NOT NULL,
   `fecha_Creacion_Apr` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aprendices_has_cursos`
+-- Estructura de tabla para la tabla `aprendices_has_cursos`
 --
 
 CREATE TABLE `aprendices_has_cursos` (
   `Aprendices_id_aprendiz` int(11) NOT NULL,
   `Cursos_id_Cur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `aprendices_has_cursos`
---
-
-INSERT INTO `aprendices_has_cursos` (`Aprendices_id_aprendiz`, `Cursos_id_Cur`) VALUES
-(0, 1),
-(12354, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cursos`
+-- Estructura de tabla para la tabla `cursos`
 --
 
 CREATE TABLE `cursos` (
@@ -72,27 +76,28 @@ CREATE TABLE `cursos` (
   `nombre_Cur` varchar(45) NOT NULL,
   `descripcion_Cur` varchar(255) NOT NULL,
   `fecha_Creacion_Cur` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `cursos`
---
-
-INSERT INTO `cursos` (`id_Cur`, `nombre_Cur`, `descripcion_Cur`, `fecha_Creacion_Cur`) VALUES
-(1, 'hola', 'asdsad', '2024-09-25 20:48:32');
-
---
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `aprendices`
+-- Indices de la tabla `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id_Adm`),
+  ADD UNIQUE KEY `usuario_Adm` (`usuario_Adm`),
+  ADD UNIQUE KEY `correo_Adm` (`correo_Adm`);
+
+--
+-- Indices de la tabla `aprendices`
 --
 ALTER TABLE `aprendices`
   ADD PRIMARY KEY (`id_aprendiz`);
 
 --
--- Indexes for table `aprendices_has_cursos`
+-- Indices de la tabla `aprendices_has_cursos`
 --
 ALTER TABLE `aprendices_has_cursos`
   ADD PRIMARY KEY (`Aprendices_id_aprendiz`,`Cursos_id_Cur`),
@@ -100,39 +105,45 @@ ALTER TABLE `aprendices_has_cursos`
   ADD KEY `fk_Aprendices_has_Cursos_Aprendices_idx` (`Aprendices_id_aprendiz`);
 
 --
--- Indexes for table `cursos`
+-- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id_Cur`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `aprendices`
+-- AUTO_INCREMENT de la tabla `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id_Adm` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `aprendices`
 --
 ALTER TABLE `aprendices`
-  MODIFY `id_aprendiz` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_aprendiz` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `cursos`
+-- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
   MODIFY `id_Cur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `aprendices`
+-- Filtros para la tabla `aprendices`
 --
 ALTER TABLE `aprendices`
   ADD CONSTRAINT `aprendices_ibfk_1` FOREIGN KEY (`id_aprendiz`) REFERENCES `aprendices_has_cursos` (`Aprendices_id_aprendiz`);
 
 --
--- Constraints for table `aprendices_has_cursos`
+-- Filtros para la tabla `aprendices_has_cursos`
 --
 ALTER TABLE `aprendices_has_cursos`
   ADD CONSTRAINT `fk_Aprendices_has_Cursos_Cursos1` FOREIGN KEY (`Cursos_id_Cur`) REFERENCES `cursos` (`id_Cur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
