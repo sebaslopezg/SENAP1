@@ -15,7 +15,7 @@ class Admins
             if ($_GET['accion'] === 'guardar') {
                 $this->adminModel->agregarAdmin(
                     filter_var($_POST['usuario'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
+                    md5(filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)),
                     filter_var($_POST['correo'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
                     filter_var($_POST['nombre'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
                     filter_var($_POST['apellido'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
