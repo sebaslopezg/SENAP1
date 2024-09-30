@@ -96,7 +96,7 @@
                     </div>
 
                     <!-- Inicio del Formulario -->
-                    <form action="index.php?call=admins&accion=agregar" method="post">
+                    <form action="index.php?call=admins&accion=guardar" method="post">
                       <!--Inicio contenido de la modal-->
                       <div class="modal-body">
                         <input

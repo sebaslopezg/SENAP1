@@ -32,7 +32,7 @@ class Admins{
                     filter_var($_POST['id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
                 );
             }
-            header('Location: index.php?call=aprendices');
+            header('Location: index.php?call=admins');
             exit();
         }
 
