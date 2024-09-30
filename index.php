@@ -20,13 +20,21 @@ function header_template()
     require_once($view_header);
 }
 
+function setLoginStatus(bool $status){
+
+    if ($status) {
+        $GLOBALS['login'] = true;
+    }else{
+        $GLOBALS['login'] = false;
+    }
+}
+
 $home = new Home();
 $aprendicesController = new AprendicesController();
 $cursosController = new CursoController();
 $asignarController = new AsignarController();
 $admins = new Admins();
 $loginController = new Login();
-$login = false;
 
 //print_r($_GET);
 

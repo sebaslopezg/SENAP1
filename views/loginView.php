@@ -27,7 +27,7 @@
 
                 <form action="index.php" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Usuario" required>
+                        <input type="text" class="form-control" name="usuario" id="email" placeholder="Usuario" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
