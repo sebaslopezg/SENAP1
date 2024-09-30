@@ -105,13 +105,13 @@
                           value="" />
 
                         <div>
-                          <label for="nombreCur" class="form-label">Usuario: </label>
+                          <label for="usuario" class="form-label">Usuario: </label>
                           <br />
                           <input
                             class="form-control"
                             type="text"
-                            name="nombreCurso"
-                            id="nombreCurso"
+                            name="usuario"
+                            id="usuario"
                             placeholder="Usuario"
                             aria-label="Usuario"
                             value=""
@@ -119,13 +119,13 @@
                         </div>
                         <br />
                         <div>
-                          <label for="nombreCur" class="form-label">Contraseña: </label>
+                          <label for="password" class="form-label">Contraseña: </label>
                           <br />
                           <input
                             class="form-control"
                             type="text"
-                            name="nombreCurso"
-                            id="nombreCurso"
+                            name="password"
+                            id="password"
                             placeholder="Contraseña"
                             aria-label="Contraseña"
                             value=""
@@ -133,13 +133,13 @@
                         </div>
                         <br />
                         <div>
-                          <label for="nombreCur" class="form-label">Correo: </label>
+                          <label for="correo" class="form-label">Correo: </label>
                           <br />
                           <input
                             class="form-control"
                             type="text"
-                            name="nombreCurso"
-                            id="nombreCurso"
+                            name="correo"
+                            id="correo"
                             placeholder="Correo"
                             aria-label="Correo"
                             value=""
@@ -147,13 +147,13 @@
                         </div>
                         <br />
                         <div>
-                          <label for="nombreCur" class="form-label">Nombre: </label>
+                          <label for="nombre" class="form-label">Nombre: </label>
                           <br />
                           <input
                             class="form-control"
                             type="text"
-                            name="nombreCurso"
-                            id="nombreCurso"
+                            name="nombre"
+                            id="nombre"
                             placeholder="Nombre"
                             aria-label="Nombre"
                             value=""
@@ -161,13 +161,13 @@
                         </div>
                         <br />
                         <div>
-                          <label for="nombreCur" class="form-label">Apellido: </label>
+                          <label for="apellido" class="form-label">Apellido: </label>
                           <br />
                           <input
                             class="form-control"
                             type="text"
-                            name="nombreCurso"
-                            id="nombreCurso"
+                            name="apellido"
+                            id="apellido"
                             placeholder="Apellido"
                             aria-label="Apellido"
                             value=""
@@ -175,20 +175,20 @@
                         </div>
                         <br />
 
-                      <!--Fin contenido de la modal-->
+                        <!--Fin contenido de la modal-->
 
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                          Cerrar
-                        </button>
-                        <button
-                          type="submit"
-                          name="action"
-                          value="agregar"
-                          class="btn btn-primary">
-                          Agregar
-                        </button>
-                      </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cerrar
+                          </button>
+                          <button
+                            type="submit"
+                            name="action"
+                            value="agregar"
+                            class="btn btn-primary">
+                            Agregar
+                          </button>
+                        </div>
                     </form>
 
                   </div>
@@ -197,13 +197,15 @@
               <!--Fin modal-->
             </div>
 
-          </div>
-          <div class="col-sm-5" style="padding-right: 1%">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item active">Home</li>
-                <li class="breadcrumb-item"><a href="index.php?call=admins">Admins</a></li>
+
+            <div class="col-sm-9">
+              <ol class="breadcrumb float-sm-right" style="padding-right: 1%">
+                <li class="breadcrumb-item active">Admins</li>
+                <li class="breadcrumb-item"><a href="index.php?call=home">Inicio</a></li>
               </ol>
             </div>
+
+          </div>
         </div>
         <!-- /.container-fluid -->
       </section>
@@ -225,7 +227,7 @@
                     <thead>
                       <tr>
                         <th>Usuario</th>
-                        <th>Corro</th>
+                        <th>Correo</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Acciones</th>
@@ -233,22 +235,22 @@
                     </thead>
 
                     <tbody>
-                      <?php if (!empty($cursos)): ?>
-                        <?php foreach ($cursos as $curso): ?>
+                      <?php if (!empty($admins)): ?>
+                        <?php foreach ($admins as $admin): ?>
                           <tr>
-                            <td><?= htmlspecialchars($admins['id_Cur']); ?></td>
-                            <td><?= htmlspecialchars($curso['nombre_Cur']); ?></td>
-                            <td><?= htmlspecialchars($curso['descripcion_Cur']); ?></td>
-                            <td><?= htmlspecialchars($curso['fecha_Creacion_Cur']); ?></td>
+                            <td><?= htmlspecialchars($admin['usuario_Adm']); ?></td>
+                            <td><?= htmlspecialchars($admin['correo_Adm']); ?></td>
+                            <td><?= htmlspecialchars($admin['nombre_Adm']); ?></td>
+                            <td><?= htmlspecialchars($admin['apellido_Adm']); ?></td>
                             <td style="text-align: center">
 
-                              <!-- Botón para abrir el modal específico de este curso -->
-                              <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditarCurso<?php echo $curso['id_Cur']; ?>">
+                              <!-- Botón para abrir el modal específico de este admin -->
+                              <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditarCurso<?php echo $admin['id_Adm']; ?>">
                                 Editar
                               </button>
 
-                              <!-- Modal único para cada curso -->
-                              <div class="modal fade" id="modalEditarCurso<?php echo $curso['id_Cur']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                              <!-- Modal único para cada admin -->
+                              <div class="modal fade" id="modalEditarCurso<?php echo $admin['id_Adm']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
@@ -259,25 +261,56 @@
                                     <!-- Formulario de Editar-->
                                     <form action="index.php?call=cursosAcciones&accion=actualizar" method="post">
                                       <div class="modal-body text-start">
-                                        <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
+                                        <input type="hidden" name="id" value="<?php echo $admin['id_Adm']; ?>">
 
-                                        <!-- Nombre del curso -->
+                                        <!-- Usuario -->
                                         <div class="mb-3">
-                                          <label for="nombreCurso<?php echo $curso['id_Cur']; ?>" class="form-label">Nombre:</label>
+                                          <label for="usuario<?php echo $admin['id_Adm']; ?>" class="form-label">Usuario:</label>
                                           <input
                                             class="form-control"
                                             type="text"
-                                            name="nombreCurso"
-                                            id="nombreCurso<?php echo $curso['id_Cur']; ?>"
-                                            value="<?php echo $curso['nombre_Cur']; ?>"
+                                            name="usuario"
+                                            id="usuario<?php echo $admin['id_Adm']; ?>"
+                                            value="<?php echo $admin['usuario_Adm']; ?>"
                                             required>
                                         </div>
 
-                                        <!-- Descripción del curso -->
+                                        <!-- Correo -->
                                         <div class="mb-3">
-                                          <label for="descripcion<?php echo $curso['id_Cur']; ?>" class="form-label">Descripción:</label>
-                                          <textarea class="form-control" name="descripcion" id="descripcion<?php echo $curso['id_Cur']; ?>" required><?php echo trim($curso['descripcion_Cur']); ?></textarea>
+                                          <label for="correo<?php echo $admin['id_Adm']; ?>" class="form-label">Correo:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="correo"
+                                            id="correo<?php echo $admin['id_Adm']; ?>"
+                                            value="<?php echo $admin['correo_Adm']; ?>"
+                                            required>
                                         </div>
+
+                                        <!-- Nombre -->
+                                        <div class="mb-3">
+                                          <label for="nombre<?php echo $admin['id_Adm']; ?>" class="form-label">Nombre:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="nombre"
+                                            id="nombre<?php echo $admin['id_Adm']; ?>"
+                                            value="<?php echo $admin['nombre_Adm']; ?>"
+                                            required>
+                                        </div>
+
+                                        <!-- Apellido -->
+                                        <div class="mb-3">
+                                          <label for="apellido<?php echo $admin['id_Adm']; ?>" class="form-label">apellido:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="apellido"
+                                            id="apellido<?php echo $admin['id_Adm']; ?>"
+                                            value="<?php echo $admin['apellido_Adm']; ?>"
+                                            required>
+                                        </div>
+
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
