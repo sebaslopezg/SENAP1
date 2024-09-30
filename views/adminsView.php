@@ -65,7 +65,7 @@
               <h1>Admins</h1>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-4">
               <!-- Inicio modal -->
               <button
                 type="button"
@@ -97,7 +97,7 @@
                     </div>
 
                     <!-- Inicio del Formulario -->
-                    <form action="index.php?call=admins&accion=agregar" method="post">
+                    <form action="index.php?call=admins&accion=guardar" method="post">
                       <!--Inicio contenido de la modal-->
                       <div class="modal-body">
                         <input
