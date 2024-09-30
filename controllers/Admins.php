@@ -9,13 +9,8 @@ class Admins{
         $this->adminModel = new AdminModel();
     }
 
-    public function listarAdmins()
-    {
-        $admins = $this->cursoModel->obtenerCursos();
-        include 'views/CursosView.php'; // Vista para mostrar comentarios
-    }
-
     public function getAdmins(){
+        $admins = $this->cursoModel->mostrarAdmins();
         require_once 'views/adminsView.php';
     }
 }
