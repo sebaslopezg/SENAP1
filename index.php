@@ -5,6 +5,7 @@ require_once 'controllers/AsignarController.php';
 require_once 'controllers/HomeController.php';
 require_once 'controllers/Admins.php';
 require_once 'controllers/Login.php';
+require_once 'controllers/Reportes.php';
 
 //helpers
 
@@ -18,7 +19,7 @@ function header_template()
     $view_header = "Views/header.php";
     require_once($view_header);
 }
-
+setLoginStatus(true);
 function setLoginStatus(bool $status){
 
     if ($status) {
@@ -34,6 +35,7 @@ $cursosController = new CursoController();
 $asignarController = new AsignarController();
 $admins = new Admins();
 $loginController = new Login();
+$reportes = new Reportes();
 
 //print_r($_GET);
 
@@ -60,8 +62,12 @@ if ($login) {
             case 'admins':
                 $admins->getAdmins();
                 break;
+            case 'reportes':
+                $reportes->getReportes();
+                break;
             default:
-                header('Location: index.php?call=home');
+                //header('Location: index.php?call=error');
+                require_once 'views/Error.php';
                 break;
         }
     } else {
