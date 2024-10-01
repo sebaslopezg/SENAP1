@@ -11,10 +11,7 @@ class Login
 
     public function getLogin()
     {
-
-        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        
 
             $respuesta = $this->loginModel->comparar(
                 filter_var($_POST['usuario'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
@@ -25,12 +22,12 @@ class Login
             if (count($respuesta) > 0) {
                 setLoginStatus(true);
                 header('Location: index.php?call=home');
-            }else{
+            } else {
                 header('Location: index.php?call=login');
             }
 
             exit();
-        }else{
+        } else {
             require_once 'views/loginView.php';
         }
     }

@@ -20,11 +20,12 @@ function header_template()
     require_once($view_header);
 }
 
-function setLoginStatus(bool $status){
+function setLoginStatus(bool $status)
+{
 
     if ($status) {
         $GLOBALS['login'] = true;
-    }else{
+    } else {
         $GLOBALS['login'] = false;
     }
 }
@@ -67,8 +68,8 @@ if ($login) {
         }
     } else {
         header('Location: index.php?call=home');
-    } 
-}else{
+    }
+} else {
     $loginController->getLogin();
 }
 

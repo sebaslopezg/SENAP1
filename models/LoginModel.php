@@ -1,8 +1,9 @@
-<?php 
+<?php
 
-require_once 'MYSQL.php'; 
+require_once 'MYSQL.php';
 
-class LoginModel{
+class LoginModel
+{
 
     private $db;
 
@@ -13,7 +14,8 @@ class LoginModel{
     }
 
     //crear validar
-    function comparar($usuario, $pass){
+    function comparar($usuario, $pass)
+    {
         $consulta = "SELECT usuario_Adm, pass_Adm FROM `admin` WHERE usuario_Adm = ? AND pass_Adm = ?";
 
         $resultado = $this->db->efectuarConsulta($consulta, [$usuario, $pass], 'ss');
@@ -24,8 +26,4 @@ class LoginModel{
         }
         return $admins;
     }
-
-
 }
-
-?>

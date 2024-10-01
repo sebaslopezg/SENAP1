@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cursos</title>
+  <title>Admins</title>
 
   <?php header_template(); ?>
 
@@ -65,7 +65,7 @@
               <h1>Admins</h1>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-2">
               <!-- Inicio modal -->
               <button
                 type="button"
@@ -199,7 +199,9 @@
               <!--Fin modal-->
             </div>
 
-            <div class="col-sm-9">
+
+
+            <div class="col-sm-2">
               <ol class="breadcrumb float-sm-right" style="padding-right: 1%">
                 <li class="breadcrumb-item active">Admins</li>
                 <li class="breadcrumb-item"><a href="index.php?call=home">Inicio</a></li>
@@ -330,7 +332,7 @@
                         <?php endforeach; ?>
                       <?php else: ?>
                         <tr>
-                          <td colspan="5">¡No hay Administradores!</td>
+                          <td colspan="5" style="text-align: center;">¡No hay administradores!</td>
                         </tr>
                       <?php endif; ?>
                     </tbody>

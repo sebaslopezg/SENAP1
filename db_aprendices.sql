@@ -62,6 +62,7 @@ CREATE TABLE `aprendices` (
 --
 -- Indices de la tabla `aprendices`
 --
+
 ALTER TABLE `aprendices`
   ADD PRIMARY KEY (`id_aprendiz`);
 
