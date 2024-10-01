@@ -2,6 +2,7 @@
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" />
+
   <!--Bootstrap-->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -34,4 +35,6 @@
   <link
     rel="stylesheet"
     href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Sweet Alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

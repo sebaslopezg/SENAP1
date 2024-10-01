@@ -41,10 +41,9 @@
                 <li class="nav-item">
                     <a href="index.php?call=asignaciones" class="nav-link <?= $_GET['call'] == 'asignaciones' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tasks"></i>
-                        <p>Asignar cursos</p>
+                        <p>Asignaciones</p>
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a href="index.php?call=admins" class="nav-link <?= $_GET['call'] == 'admins' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-user-cog"></i>
@@ -52,8 +51,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="index.php?call=reportes" class="nav-link <?= $_GET['call'] == 'reportes' ? 'active' : '' ?>">
+                        <i class="nav-icon fa fa-flag"></i>
+                        <p>Reportes</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="index.php?call=logout" class="nav-link">
-                        <i class="fas fa-user-shield"></i>
+                        <i class="nav-icon fas fa-user-shield"></i>
                         <p>Salir</p>
                     </a>
                 </li>

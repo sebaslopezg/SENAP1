@@ -7,6 +7,34 @@
   <title>Aprendices</title>
 
   <?php header_template(); ?>
+
+  <!-- Estilos personalizados -->
+  <style>
+    /* Oculta el texto del logotipo cuando el menú esté contraído */
+    .sidebar-collapse .brand-link h6 {
+      display: none;
+      /* Oculta el texto "Sistema de Gestión" */
+    }
+
+    /* Oculta el texto del usuario cuando el menú esté contraído */
+    .sidebar-collapse .user-panel .info span {
+      display: none;
+      /* Oculta el texto "admin" */
+    }
+
+    /* Muestra los iconos cuando el menú esta contraído */
+    .sidebar-collapse .brand-link .nav-icon,
+    .sidebar-collapse .user-panel .icon {
+      display: inline-block;
+    }
+
+    /* Muestra el texto normalmente cuando el menú esté expandido */
+    .brand-link h6,
+    .user-panel .info span {
+      display: inline-block;
+      /* Asegura que el texto esté visible */
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -107,17 +135,17 @@
                         <div>
                           <label for="nombreCur" class="form-label">Genero: </label>
                           <br />
-                            <select class="form-control" name="generoAprendiz" id="">
-                                <option value="masculino">Masculino</option>
-                                <option value="femenino">Femenino</option>
-                                <option value="na">Prefiero no decirlo</option>
-                            </select>
+                          <select class="form-control" name="generoAprendiz" id="">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="na">Prefiero no decirlo</option>
+                          </select>
                         </div>
                         <br />
                         <div>
                           <label for="nombreCur" class="form-label">Fecha de nacimiento: </label>
                           <br />
-                            <input name="fechaNacimientoAprendiz" class="form-control" type="date">
+                          <input name="fechaNacimientoAprendiz" class="form-control" type="date">
                         </div>
                         <br />
                         <div>
@@ -145,20 +173,20 @@
                         </div>
                         <br />
 
-                      <!--Fin contenido de la modal-->
+                        <!--Fin contenido de la modal-->
 
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                          Cerrar
-                        </button>
-                        <button
-                          type="submit"
-                          name="action"
-                          value="agregar"
-                          class="btn btn-primary">
-                          Agregar
-                        </button>
-                      </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cerrar
+                          </button>
+                          <button
+                            type="submit"
+                            name="action"
+                            value="agregar"
+                            class="btn btn-primary">
+                            Agregar
+                          </button>
+                        </div>
                     </form>
 
                   </div>
@@ -186,131 +214,131 @@
                 <div class="card-body">
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Documento</th>
-                            <th>Genero</th>
-                            <th>Fecha de nacimiento</th>
-                            <th>Telefono</th>
-                            <th>Correo</th>
-                            <th>Accion</th>
-                        </tr>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Documento</th>
+                        <th>Genero</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Accion</th>
+                      </tr>
                     </thead>
 
                     <tbody>
                       <?php if (count($arrAprendices) > 0): ?>
                         <?php foreach ($arrAprendices as $aprendiz): ?>
-                        <tr>
-                          <td><?= $aprendiz['nombre_Apr']; ?></td>
-                          <td><?= $aprendiz['apellido_Apr']; ?></td>
-                          <td><?= $aprendiz['num_Doc_Apr']; ?></td>
-                          <td><?= $aprendiz['genero_Apr']; ?></td>
-                          <td><?= $aprendiz['fecha_Nacimiento_Apr']; ?></td>
-                          <td><?= $aprendiz['telefono_Apr']; ?></td>
-                          <td><?= $aprendiz['correo_Apr']; ?></td>
-                          <td style="text-align: center">
-                            <!-- Botón para abrir el modal específico de este curso -->
-                            <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditarCurso<?= $aprendiz['num_Doc_Apr']; ?>">
-                              Editar
-                            </button>
+                          <tr>
+                            <td><?= $aprendiz['nombre_Apr']; ?></td>
+                            <td><?= $aprendiz['apellido_Apr']; ?></td>
+                            <td><?= $aprendiz['num_Doc_Apr']; ?></td>
+                            <td><?= $aprendiz['genero_Apr']; ?></td>
+                            <td><?= $aprendiz['fecha_Nacimiento_Apr']; ?></td>
+                            <td><?= $aprendiz['telefono_Apr']; ?></td>
+                            <td><?= $aprendiz['correo_Apr']; ?></td>
+                            <td style="text-align: center">
+                              <!-- Botón para abrir el modal específico de este curso -->
+                              <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditarCurso<?= $aprendiz['num_Doc_Apr']; ?>">
+                                Editar
+                              </button>
 
-                            <!-- Modal único para cada curso -->
-                            <div class="modal fade" id="modalEditarCurso<?= $aprendiz['num_Doc_Apr']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                              <div class="modal-dialog">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Aprendiz</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              <!-- Modal único para cada curso -->
+                              <div class="modal fade" id="modalEditarCurso<?= $aprendiz['num_Doc_Apr']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Aprendiz</h1>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <!-- Formulario de Editar-->
+                                    <form action="index.php?call=aprendices&accion=editar" method="POST">
+                                      <div class="modal-body text-start">
+
+                                        <div class="mb-3">
+                                          <label class="form-label">Nombre:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="nombreAprendiz"
+                                            value="<?= $aprendiz['nombre_Apr']; ?>"
+                                            required>
+                                        </div>
+                                        <br>
+                                        <div class="mb-3">
+                                          <label class="form-label">Apellido:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="apellidoAprendiz"
+                                            value="<?= $aprendiz['apellido_Apr']; ?>"
+                                            required>
+                                        </div>
+                                        <br>
+                                        <div class="mb-3">
+                                          <label class="form-label">Documento:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="documentoAprendiz"
+                                            value="<?= $aprendiz['num_Doc_Apr']; ?>"
+                                            required>
+                                        </div>
+                                        <br>
+                                        <div class="mb-3">
+                                          <label class="form-label">Genero:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="generoAprendiz"
+                                            value="<?= $aprendiz['genero_Apr']; ?>"
+                                            required>
+                                        </div>
+                                        <br>
+                                        <div class="mb-3">
+                                          <label class="form-label">Fecha de nacimiento:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="fechaNacimientoAprendiz"
+                                            value="<?= $aprendiz['fecha_Nacimiento_Apr']; ?>"
+                                            required>
+                                        </div>
+                                        <br>
+                                        <div class="mb-3">
+                                          <label class="form-label">Telefono:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="telefonoAprendiz"
+                                            value="<?= $aprendiz['telefono_Apr']; ?>"
+                                            required>
+                                        </div>
+                                        <br>
+                                        <div class="mb-3">
+                                          <label class="form-label">Correo:</label>
+                                          <input
+                                            class="form-control"
+                                            type="text"
+                                            name="correoAprendiz"
+                                            value="<?= $aprendiz['correo_Apr']; ?>"
+                                            required>
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        <button class="btn btn-primary" type="submit" name="action" value="actualizar">Editar</button>
+                                      </div>
+                                    </form>
+                                    <!-- Fin Formulario de Editar-->
                                   </div>
-
-                                  <!-- Formulario de Editar-->
-                                  <form action="index.php?call=aprendices&accion=editar" method="POST">
-                                    <div class="modal-body text-start">
-
-                                      <div class="mb-3">
-                                        <label class="form-label">Nombre:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="nombreAprendiz"
-                                          value="<?= $aprendiz['nombre_Apr']; ?>"
-                                          required>
-                                      </div>
-                                      <br>
-                                      <div class="mb-3">
-                                        <label class="form-label">Apellido:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="apellidoAprendiz"
-                                          value="<?= $aprendiz['apellido_Apr']; ?>"
-                                          required>
-                                      </div>
-                                      <br>
-                                      <div class="mb-3">
-                                        <label class="form-label">Documento:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="documentoAprendiz"
-                                          value="<?= $aprendiz['num_Doc_Apr']; ?>"
-                                          required>
-                                      </div>
-                                      <br>
-                                      <div class="mb-3">
-                                        <label class="form-label">Genero:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="generoAprendiz"
-                                          value="<?= $aprendiz['genero_Apr']; ?>"
-                                          required>
-                                      </div>
-                                      <br>
-                                      <div class="mb-3">
-                                        <label class="form-label">Fecha de nacimiento:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="fechaNacimientoAprendiz"
-                                          value="<?= $aprendiz['fecha_Nacimiento_Apr']; ?>"
-                                          required>
-                                      </div>
-                                      <br>
-                                      <div class="mb-3">
-                                        <label class="form-label">Telefono:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="telefonoAprendiz"
-                                          value="<?= $aprendiz['telefono_Apr']; ?>"
-                                          required>
-                                      </div>
-                                      <br>
-                                      <div class="mb-3">
-                                        <label class="form-label">Correo:</label>
-                                        <input
-                                          class="form-control"
-                                          type="text"
-                                          name="correoAprendiz"
-                                          value="<?= $aprendiz['correo_Apr']; ?>"
-                                          required>
-                                      </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                      <button class="btn btn-primary" type="submit" name="action" value="actualizar">Editar</button>
-                                    </div>
-                                  </form>
-                                  <!-- Fin Formulario de Editar-->
                                 </div>
                               </div>
-                            </div>
-                            <!-- Fin del modal -->
-                          </td>
-                        </tr>
+                              <!-- Fin del modal -->
+                            </td>
+                          </tr>
                         <?php endforeach; ?>
                       <?php endif; ?>
                     </tbody>
@@ -341,46 +369,28 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <!-- Bootstrap 4 -->
-  <!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-
   <!-- DataTables  & Plugins -->
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <!-- <script src="./plugins/datatables/jquery.dataTables.min.js"></script> -->
 
-  <!-- <script src="https://cdn.datatables.net/bs4/1.11.5/js/dataTables.bootstrap4.min.js"></script> -->
-  <!-- <script src="./js/dataTables.bootstrap4.min.js"></script> -->
-  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
-
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
   <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-  <!-- <script src="./plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
-
-  <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
-  <!-- <script src="./plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
 
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-  <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap5.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
 
-  <!-- <script src="./plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="./plugins/jszip/jszip.min.js"></script>
-    <script src="./plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="./plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="./plugins/datatables-buttons/js/buttons.colVis.min.js"></script> -->
   <!-- AdminLTE -->
   <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
 
-  <!-- AdminLTE for demo purposes -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/demo.js"></script> -->
   <!-- Page specific script -->
   <script>
     $(function() {

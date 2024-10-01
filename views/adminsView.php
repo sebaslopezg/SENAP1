@@ -201,7 +201,7 @@
 
 
 
-            <div class="col-sm-2">
+            <div class="col-sm-9">
               <ol class="breadcrumb float-sm-right" style="padding-right: 1%">
                 <li class="breadcrumb-item active">Admins</li>
                 <li class="breadcrumb-item"><a href="index.php?call=home">Inicio</a></li>

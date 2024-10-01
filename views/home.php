@@ -8,6 +8,33 @@
 
     <?php header_template(); ?>
 
+    <!-- Estilos personalizados -->
+    <style>
+        /* Oculta el texto del logotipo cuando el menú esté contraído */
+        .sidebar-collapse .brand-link h6 {
+            display: none;
+            /* Oculta el texto "Sistema de Gestión" */
+        }
+
+        /* Oculta el texto del usuario cuando el menú esté contraído */
+        .sidebar-collapse .user-panel .info span {
+            display: none;
+            /* Oculta el texto "admin" */
+        }
+
+        /* Muestra los iconos cuando el menú esta contraído */
+        .sidebar-collapse .brand-link .nav-icon,
+        .sidebar-collapse .user-panel .icon {
+            display: inline-block;
+        }
+
+        /* Muestra el texto normalmente cuando el menú esté expandido */
+        .brand-link h6,
+        .user-panel .info span {
+            display: inline-block;
+            /* Asegura que el texto esté visible */
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -24,7 +51,7 @@
         </nav>
 
         <?php sideBar(); ?>
-        <?php msg("Error","error", "Faltan mas datos"); ?>
+        <?php msg("Error", "error", "Faltan mas datos"); ?>
 
         <!-- Contenido de la página -->
         <div class="content-wrapper">
@@ -35,10 +62,9 @@
                         <div class="col-sm-6">
                             <h1>Bienvenido</h1>
                         </div>
-                        <div class="col-sm-6" style="padding-right: 0.7%">
+                        <div class="col-sm-6" style="padding-right: 1.5%">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item active">Inicio</li>
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
                             </ol>
                         </div>
                     </div>
@@ -94,4 +120,4 @@
             </section>
         </div>
 
-<?php footer_template(); ?>
+        <?php footer_template(); ?>

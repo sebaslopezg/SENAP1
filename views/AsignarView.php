@@ -47,7 +47,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
-      <span style="margin-left: 1%">Asignaciones</span>
+      <span style="margin-left: 1%">Crear Asignaciones</span>
     </nav>
     <!-- /.navbar -->
 
