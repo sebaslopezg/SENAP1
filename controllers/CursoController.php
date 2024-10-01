@@ -13,19 +13,9 @@ class CursoController
     public function listarCursos()
     {
         $cursos = $this->cursoModel->obtenerCursos();
-        include 'views/CursosView.php'; // Vista para mostrar comentarios
+        include 'views/CursosView.php';
     }
-
-    /* public function mostrarFormulario($id = null)
-    {
-        if ($id) {
-            $curso = $this->cursoModel->obtenerCursoPorId($id);
-            include '../views/EditarComentario.php';
-        } else {
-            include './views/CrearComentario.php';
-        }
-    } */
-
+    
     public function manejarFormulario()
     {
         if (isset($_POST['action'])) {
@@ -41,7 +31,7 @@ class CursoController
                     header('Location: index.php?call=cursos');
                     exit();
                 } else {
-                    echo "Faltan datos del formulario para agregar.";
+                    msg("Error","error", "Faltan mas datos");
                 }
             } elseif ($_POST['action'] === 'actualizar') {
                 if (

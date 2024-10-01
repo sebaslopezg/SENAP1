@@ -1,3 +1,4 @@
+
 <!-- Menú lateral -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Logotipo -->
@@ -13,7 +14,7 @@
                 <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%"></i>
             </div>
             <div class="info">
-                <span style="color: white"><?= $_SESSION['usuario'] ?></span>
+                <span style="color: white">Administrador</span>
             </div>
         </div>
 
@@ -42,19 +43,6 @@
                     <a href="index.php?call=asignaciones" class="nav-link <?= $_GET['call'] == 'asignaciones' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tasks"></i>
                         <p>Asignar cursos</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="index.php?call=admins" class="nav-link <?= $_GET['call'] == 'admins' ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-user-cog"></i>
-                        <p>Admins</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="index.php?call=logout" class="nav-link">
-                        <i class="fas fa-user-shield"></i>
-                        <p>Salir</p>
                     </a>
                 </li>
             </ul>

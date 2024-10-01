@@ -34,3 +34,4 @@
   <link
     rel="stylesheet"
     href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap4.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
