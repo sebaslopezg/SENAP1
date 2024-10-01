@@ -3,10 +3,13 @@ require_once 'models/LoginModel.php';
 class Login
 {
     private $loginModel;
+    public $inicioSesion;
 
     public function __construct()
     {
         $this->loginModel = new LoginModel();
+        $this->inicioSesion;
+        
     }
 
     public function getLogin()
@@ -23,7 +26,9 @@ class Login
 
             print_r($respuesta);
             if (count($respuesta) > 0) {
-                setLoginStatus(true);
+                $this->inicioSesion = true;
+                $_SESSION['login'] = true;
+                $_SESSION['usuario'] = $_POST['usuario'];
                 header('Location: index.php?call=home');
             }else{
                 header('Location: index.php?call=login');

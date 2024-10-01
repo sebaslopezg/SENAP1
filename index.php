@@ -1,4 +1,5 @@
 <?php
+require_once 'Helpers/helpers.php';
 require_once 'controllers/AprendicesController.php';
 require_once 'controllers/CursoController.php';
 require_once 'controllers/AsignarController.php';
@@ -7,27 +8,8 @@ require_once 'controllers/Admins.php';
 require_once 'controllers/Login.php';
 require_once 'controllers/Reportes.php';
 
-//helpers
-
-function sideBar()
-{
-    require_once('Views/sidebar.php');
-}
-
-function header_template()
-{
-    $view_header = "Views/header.php";
-    require_once($view_header);
-}
-setLoginStatus(true);
-function setLoginStatus(bool $status){
-
-    if ($status) {
-        $GLOBALS['login'] = true;
-    }else{
-        $GLOBALS['login'] = false;
-    }
-}
+//USUARIO: admin
+//CONTRASEÑA: admin
 
 $home = new Home();
 $aprendicesController = new AprendicesController();
@@ -36,10 +18,16 @@ $asignarController = new AsignarController();
 $admins = new Admins();
 $loginController = new Login();
 $reportes = new Reportes();
+$sesionActiva;
+session_start();
 
-//print_r($_GET);
+if (isset($_SESSION['login'])) {
+    $sesionActiva = true;
+}else{
+    $sesionActiva = false;
+}
 
-if ($login) {
+if ($sesionActiva ) {
     if (count($_GET) > 0) {
 
         switch ($_GET['call']) {
@@ -65,6 +53,10 @@ if ($login) {
             case 'reportes':
                 $reportes->getReportes();
                 break;
+            case 'logout':
+                session_destroy();
+                header('Location: index.php');
+                break;
             default:
                 //header('Location: index.php?call=error');
                 require_once 'views/Error.php';
@@ -79,13 +71,4 @@ if ($login) {
 
 
 
-/* function msg($posicion, $icono, $showConfirmButton){
-"<script>Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Your work has been saved',
-                showConfirmButton: false,
-                timer: 1500
-                });
-            </script>";
-} */
+

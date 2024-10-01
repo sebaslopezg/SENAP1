@@ -39,7 +39,7 @@ class AsignarController
                         echo "se repite la monda";
                     }
                 } else {
-                    echo "Faltan datos en el formulario.";
+                    msg("Error","error", "Faltan mas datos");
                 }
             }
 
@@ -47,7 +47,7 @@ class AsignarController
                 if (isset($_POST['aprendizSeleccionado']) && isset($_POST['arrayCursos'])) {
                     $this->agregarAprendizCursos($_POST['aprendizSeleccionado'], $_POST['arrayCursos']);
                 } else {
-                    echo "Faltan datos en el formulario.";
+                    msg("Error","error", "Faltan mas datos");
                 }
             }
         }

@@ -24,6 +24,7 @@
         </nav>
 
         <?php sideBar(); ?>
+        <?php msg("Error","error", "Faltan mas datos"); ?>
 
         <!-- Contenido de la página -->
         <div class="content-wrapper">

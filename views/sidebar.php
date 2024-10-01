@@ -13,7 +13,7 @@
                 <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%"></i>
             </div>
             <div class="info">
-                <span style="color: white">Administrador</span>
+                <span style="color: white"><?= $_SESSION['usuario'] ?></span>
             </div>
         </div>
 
@@ -49,6 +49,12 @@
                     <a href="index.php?call=admins" class="nav-link <?= $_GET['call'] == 'usuarios' ? 'active' : '' ?>">
                         <i class="fas fa-user-shield"></i>
                         <p>Admins</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.php?call=logout" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <p>Salir</p>
                     </a>
                 </li>
             </ul>

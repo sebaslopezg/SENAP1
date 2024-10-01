@@ -31,7 +31,7 @@ class CursoController
                     header('Location: index.php?call=cursos');
                     exit();
                 } else {
-                    echo "Faltan datos del formulario para agregar.";
+                    msg("Error","error", "Faltan mas datos");
                 }
             } elseif ($_POST['action'] === 'actualizar') {
                 if (

@@ -40,6 +40,9 @@ CREATE TABLE `admin` (
   `apellido_Adm` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `admin` (`id_Adm`, `usuario_Adm`, `pass_Adm`, `correo_Adm`, `nombre_Adm`, `apellido_Adm`) VALUES
+(4, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'admin', 'admin');
+
 -- --------------------------------------------------------
 
 --
