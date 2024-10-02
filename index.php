@@ -1,9 +1,9 @@
 <?php
 require_once 'Helpers/helpers.php';
-require_once 'controllers/AprendicesController.php';
-require_once 'controllers/CursoController.php';
-require_once 'controllers/AsignarController.php';
-require_once 'controllers/HomeController.php';
+require_once 'controllers/Aprendices.php';
+require_once 'controllers/Curso.php';
+require_once 'controllers/Asignar.php';
+require_once 'controllers/Home.php';
 require_once 'controllers/Admins.php';
 require_once 'controllers/Login.php';
 require_once 'controllers/Reportes.php';
@@ -12,9 +12,9 @@ require_once 'controllers/Reportes.php';
 //CONTRASEÑA: admin
 
 $home = new Home();
-$aprendicesController = new AprendicesController();
-$cursosController = new CursoController();
-$asignarController = new AsignarController();
+$aprendicesController = new Aprendices();
+$cursosController = new Curso();
+$asignarController = new Asignar();
 $admins = new Admins();
 $loginController = new Login();
 $reportes = new Reportes();

@@ -1,7 +1,7 @@
 <?php
 require_once 'models/aprendicesModel.php';
 
-class AprendicesController
+class Aprendices
 {
 
     private $aprendicesModel;

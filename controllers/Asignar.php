@@ -1,7 +1,7 @@
 <?php
 require_once 'models/AsignarModel.php';
 
-class AsignarController
+class Asignar
 {
     private $asignarModel;
 
