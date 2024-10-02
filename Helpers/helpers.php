@@ -2,17 +2,17 @@
 
 function sideBar()
 {
-    require_once('Views/sidebar.php');
+    require_once('Views/template/sidebar.php');
 }
 
 function header_template()
 {
-    $view_header = "Views/header.php";
+    $view_header = "Views/template/header.php";
     require_once($view_header);
 }
 
 function footer_template(){
-    require_once 'views/footer.php';
+    require_once 'views/template/footer.php';
 }
 
 function dep($data){

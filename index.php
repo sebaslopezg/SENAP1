@@ -43,7 +43,6 @@ if ($sesionActiva) {
             case 'cursosAcciones':
                 $cursosController->manejarFormulario();
                 break;
-                // 3 Case para las asignaciones :: mostrar,add 1 curso muchos aprendices, add 1 aprendiz muchos cursos
             case 'asignaciones':
                 $asignarController->mostrar();
                 break;
