@@ -54,12 +54,12 @@
                     <div class="row mt-2">
                         <!-- Alertas Button -->
                         <div class="col-lg-4 col-12">
-                            <a href="#" class="no-underline">
+                            <a href="index.php?call=reportes&reporte=cursosexistentes" class="no-underline">
                                 <div class="info-box" style="color: white; background-color: #007BFF;">
                                     <span class="info-box-icon" style="background-color: white;"><i class="fas fa-book-open" style="color: #333333;"></i></span>
                                     <div class="info-box-content">
                                         <h5>Cursos existentes</h5>
-                                        <span>12</span>
+                                        <span><?= $cantidadCursos ?></span>
                                     </div>
                                 </div>
                             </a>
@@ -71,7 +71,7 @@
                                     <span class="info-box-icon" style="background-color: white;"><i class="fas fa-users" style="color: #333333;"></i></span>
                                     <div class="info-box-content">
                                         <h5>Aprendices Asignados</h5>
-                                        <span>17</span>
+                                        <span><?= $cantidadAprendices ?></span>
                                     </div>
                                 </div>
                             </a>
@@ -83,7 +83,7 @@
                                     <span class="info-box-icon" style="background-color: white;"><i class="fas fa-exclamation-triangle" style="color: #333333;"></i></span>
                                     <div class="info-box-content">
                                         <h5>Aprendices sin cursos</h5>
-                                        <span>4</span>
+                                        <span><?= $cantidadAprendicesSinCursos ?></span>
                                     </div>
                                 </div>
                             </a>
