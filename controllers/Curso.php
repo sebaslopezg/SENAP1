@@ -24,8 +24,8 @@ class Curso
                     isset($_POST['nombreCurso']) && !empty(trim($_POST['nombreCurso'])) &&
                     isset($_POST['descripcion']) && !empty(trim($_POST['descripcion']))
                 ) {
-                    $nombreCurso = $_POST['nombreCurso'];
-                    $descripcion = $_POST['descripcion'];
+                    $nombreCurso =  strClean($_POST['nombreCurso']);
+                    $descripcion = strClean($_POST['descripcion']);
                     $this->cursoModel->agregarCurso($nombreCurso, $descripcion);
                     // Redirige al listado de cursos después de agregar
                     header('Location: index.php?call=cursos');
@@ -40,8 +40,8 @@ class Curso
                     isset($_POST['descripcion']) && !empty(trim($_POST['descripcion']))
                 ) {
                     $id = $_POST['id'];
-                    $nombreCurso = $_POST['nombreCurso'];
-                    $descripcion = $_POST['descripcion'];
+                    $nombreCurso = strClean($_POST['nombreCurso']);
+                    $descripcion = strClean($_POST['descripcion']);
                     $this->cursoModel->actualizarCurso($id, $nombreCurso, $descripcion);
                     // Redirige al listado de cursos después de actualizar
                     header('Location: index.php?call=cursos');

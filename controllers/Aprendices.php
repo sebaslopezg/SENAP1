@@ -24,13 +24,13 @@ class Aprendices
                     isset($_POST['telefonoAprendiz'])&&
                     isset($_POST['correoAprendiz'])) {
                         $this->aprendicesModel->agregarAprendiz(
-                            filter_var($_POST['documentoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['nombreAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['apellidoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['generoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['fechaNacimientoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['telefonoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['correoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)    
+                            strClean($_POST['documentoAprendiz']),
+                            strClean($_POST['nombreAprendiz']),
+                            strClean($_POST['apellidoAprendiz']),
+                            strClean($_POST['generoAprendiz']),
+                            strClean($_POST['fechaNacimientoAprendiz']),
+                            strClean($_POST['telefonoAprendiz']),
+                            strClean($_POST['correoAprendiz'])    
                         );
                 }
 
@@ -45,13 +45,13 @@ class Aprendices
                     isset($_POST['telefonoAprendiz'])&&
                     isset($_POST['correoAprendiz'])) {
                         $this->aprendicesModel->actualizarAprendiz(
-                            filter_var($_POST['documentoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['nombreAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['apellidoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['generoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['fechaNacimientoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['telefonoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                            filter_var($_POST['correoAprendiz'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
+                            strClean($_POST['documentoAprendiz']),
+                            strClean($_POST['nombreAprendiz']),
+                            strClean($_POST['apellidoAprendiz']),
+                            strClean($_POST['generoAprendiz']),
+                            strClean($_POST['fechaNacimientoAprendiz']),
+                            strClean($_POST['telefonoAprendiz']),
+                            strClean($_POST['correoAprendiz'])
                         );
                 }
 
@@ -59,9 +59,7 @@ class Aprendices
             header('Location: index.php?call=aprendices');
             exit();
         }
-
         $arrAprendices = $this->aprendicesModel->mostrarAprendices();
         require 'views/aprendicesView.php';
-        //print_r($arrAprendices);
     }
 }

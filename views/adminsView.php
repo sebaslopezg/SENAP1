@@ -7,34 +7,6 @@
   <title>Admins</title>
 
   <?php header_template(); ?>
-
-  <!-- Estilos personalizados -->
-  <style>
-    /* Ocultar el texto del logotipo cuando el menú esté contraído */
-    .sidebar-collapse .brand-link h6 {
-      display: none;
-      /* Oculta el texto "Sistema de Gestión" */
-    }
-
-    /* Ocultar el texto del usuario cuando el menú esté contraído */
-    .sidebar-collapse .user-panel .info span {
-      display: none;
-      /* Oculta el texto "Usuario" */
-    }
-
-    /* Mostrar los iconos cuando el menú esté contraído */
-    .sidebar-collapse .brand-link .nav-icon,
-    .sidebar-collapse .user-panel .icon {
-      display: inline-block;
-    }
-
-    /* Mostrar el texto normalmente cuando el menú esté expandido */
-    .brand-link h6,
-    .user-panel .info span {
-      display: inline-block;
-      /* Asegura que el texto esté visible */
-    }
-  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
