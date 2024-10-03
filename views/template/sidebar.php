@@ -52,13 +52,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="index.php?call=reportes" class="nav-link <?= $_GET['call'] == 'reportes' ? 'active' : '' ?>">
-                        <i class="nav-icon fa fa-flag"></i>
+                        <i class="nav-icon fas fa-file-alt"></i>
                         <p>Reportes</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="index.php?call=logout" class="nav-link">
-                        <i class="nav-icon fas fa-user-shield"></i>
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Salir</p>
                     </a>
                 </li>

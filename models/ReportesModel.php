@@ -65,6 +65,31 @@ class ReportesModel{
         return $cursos;
     }
 
+    function getAprendicesReporte(){
+        $sql = "SELECT aprendices.nombre_Apr, aprendices.apellido_Apr, aprendices.num_Doc_Apr, aprendices.correo_Apr FROM aprendices
+                join aprendices_has_cursos on aprendices_has_cursos.Aprendices_id_aprendiz = aprendices.id_aprendiz
+                WHERE aprendices_has_cursos.Aprendices_id_aprendiz = aprendices.id_aprendiz";
+        $resultado = $this->db->efectuarConsulta($sql);
+
+        $arrResp = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $arrResp[] = $fila;
+        }
+        return $arrResp;
+    }
+    function getAprendicesSinCursosReporte(){
+        $sql = "SELECT nombre_Apr, apellido_Apr, correo_Apr FROM aprendices a WHERE NOT EXISTS 
+                (SELECT * FROM aprendices_has_cursos b
+                WHERE a.id_aprendiz = b.Aprendices_id_aprendiz);";
+        $resultado = $this->db->efectuarConsulta($sql);
+
+        $arrResp = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $arrResp[] = $fila;
+        }
+        return $arrResp;
+    }
+
 }
 
 ?>

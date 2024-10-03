@@ -65,7 +65,7 @@
                         </div>
                         <!-- Usuarios Activos Button -->
                         <div class="col-lg-4 col-12">
-                            <a href="#" class="no-underline">
+                            <a href="index.php?call=reportes&reporte=aprendicesasignados" class="no-underline">
                                 <div class="info-box" style="color: white; background-color: #28A745;">
                                     <span class="info-box-icon" style="background-color: white;"><i class="fas fa-users" style="color: #333333;"></i></span>
                                     <div class="info-box-content">
@@ -77,7 +77,7 @@
                         </div>
                         <!-- Usuarios Activos Button -->
                         <div class="col-lg-4 col-12">
-                            <a href="#" class="no-underline">
+                            <a href="index.php?call=reportes&reporte=noasignados" class="no-underline">
                                 <div class="info-box" style="color: white; background-color: #DC3545;">
                                     <span class="info-box-icon" style="background-color: white;"><i class="fas fa-exclamation-triangle" style="color: #333333;"></i></span>
                                     <div class="info-box-content">

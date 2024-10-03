@@ -22,9 +22,19 @@ class Reportes
     {
 
         if (isset($_GET['reporte'])) {
+
             if ($_GET['reporte'] === 'cursosexistentes') {
                 $this->generarReporteCursos();
             }
+
+            if ($_GET['reporte'] === 'aprendicesasignados') {
+                $this->generarReporteAprendices();
+            }
+
+            if ($_GET['reporte'] === 'noasignados') {
+                $this->generarReporteAprendicesNoAsignados();
+            }
+
         }
 
 
@@ -37,8 +47,17 @@ class Reportes
 
     private function generarReporteCursos(){
         $cursos = $this->reportesModel->getCursosReporte();
-        //print_r($cursos[0]);
         $this->nPdf->tabla("Reporte Cursos",['Nombre','Descipcion','Fecha Creacion'], [40, 90, 60],$cursos, 'D');
+    }
+
+    private function generarReporteAprendices(){
+        $aprendicesData = $this->reportesModel->getAprendicesReporte();
+        $this->nPdf->tabla("Reporte Aprendices",['Nombre','Apellido','Documento','Correo'], [50, 50, 40,50],$aprendicesData, 'D');
+    }
+
+    private function generarReporteAprendicesNoAsignados(){
+        $aprendicesData = $this->reportesModel->getAprendicesSinCursosReporte();
+        $this->nPdf->tabla("Reporte Aprendices No asignados",['Nombre','Apellido','Correo'], [60, 60, 60],$aprendicesData, 'D');
     }
     
 }

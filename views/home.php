@@ -109,7 +109,7 @@
                                     <p>Consulta la informacion de cursos y aprendices.</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fas fa-flag"></i>
+                                    <i class="fas fa-file-alt"></i>
                                 </div>
                                 <a href="index.php?call=reportes" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
