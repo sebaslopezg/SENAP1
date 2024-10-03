@@ -13,12 +13,13 @@
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
+      <!-- Enlaces de navegación -->
       <ul class="navbar-nav" style="margin-left: 1%;">
         <li class=" nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
+      <span style="margin-left: 1%">Gestión de Aprendices</span>
     </nav>
     <!-- /.navbar -->
 
@@ -34,7 +35,7 @@
               <h1>Aprendices</h1>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <!-- Inicio modal -->
               <button
                 type="button"
@@ -75,8 +76,8 @@
                             type="text"
                             name="nombreAprendiz"
                             id="nombreAprendiz"
-                            placeholder="Nombre del Aprendiz"
-                            aria-label="Nombre del Aprendiz"
+                            placeholder="Nombre del aprendiz"
+                            aria-label="Nombre del aprendiz"
                             required />
                         </div>
                         <br />
@@ -159,12 +160,20 @@
                             Agregar
                           </button>
                         </div>
+                      </div>
                     </form>
 
                   </div>
                 </div>
               </div>
               <!--Fin modal-->
+            </div>
+
+            <div class="col-sm-7" style="padding-right: 1%">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item active">Aprendices</li>
+                <li class="breadcrumb-item"><a href="index.php?call=home">Inicio</a></li>
+              </ol>
             </div>
           </div>
         </div>
@@ -312,6 +321,10 @@
                             </td>
                           </tr>
                         <?php endforeach; ?>
+                      <?php else: ?>
+                        <tr>
+                          <td colspan="8" style="text-align: center;">¡No existen aprendices!</td>
+                        </tr>
                       <?php endif; ?>
                     </tbody>
                   </table>

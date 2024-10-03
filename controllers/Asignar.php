@@ -26,7 +26,7 @@ class Asignar
                     foreach ($arrAprendices as $elemento) {
                         foreach ($aprendices as $value) {
                             echo $value['id_aprendiz'] . " compara " . $elemento . "<br>";
-                            if ( intval($value['id_aprendiz']) == intval($elemento)) {
+                            if (intval($value['id_aprendiz']) == intval($elemento)) {
                                 //echo $value['id_aprendiz'] . " es igual a " . $elemento;
                                 $seRepite = true;
                             }
@@ -35,11 +35,11 @@ class Asignar
 
                     if (!$seRepite) {
                         //$this->agregarCursoAprendices($_POST['arrayAprendices'], $_POST['cursoSeleccionado']);
-                    }else{
+                    } else {
                         echo "se repite la monda";
                     }
                 } else {
-                    msg("Error","error", "Faltan mas datos");
+                    msg("Error", "error", "Faltan mas datos");
                 }
             }
 
@@ -47,7 +47,7 @@ class Asignar
                 if (isset($_POST['aprendizSeleccionado']) && isset($_POST['arrayCursos'])) {
                     $this->agregarAprendizCursos($_POST['aprendizSeleccionado'], $_POST['arrayCursos']);
                 } else {
-                    msg("Error","error", "Faltan mas datos");
+                    msg("Error", "error", "Faltan mas datos");
                 }
             }
         }
