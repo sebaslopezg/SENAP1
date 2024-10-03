@@ -54,6 +54,17 @@ class ReportesModel{
         return $cursos;
     }
 
+    function getCursosReporte(){
+        $sql = "SELECT nombre_Cur, descripcion_Cur, fecha_Creacion_Cur FROM cursos";
+        $resultado = $this->db->efectuarConsulta($sql);
+
+        $cursos = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $cursos[] = $fila;
+        }
+        return $cursos;
+    }
+
 }
 
 ?>
