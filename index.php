@@ -19,6 +19,7 @@ $admins = new Admins();
 $loginController = new Login();
 $reportes = new Reportes();
 $sesionActiva;
+
 session_start();
 
 if (isset($_SESSION['login'])) {
