@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page" style="background-color: #D3D3D3;">
+<body class="hold-transition login-page" style="background-color: #3498DB;">
     <div class="login-box">
         <div class="login-logo">
-            <b>Admin</b>LTE
+            <h2 style="color: white;">LogIn</h2>
         </div>
         <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
+        <div class="card" style="border-radius: 20px;">
+            <div class="card-body login-card-body" style="border-radius: 20px; background-color: white">
                 <p class="login-box-msg">Inicia sesión para comenzar</p>
 
                 <form action="index.php" method="post">
@@ -30,7 +30,7 @@
                         <input type="text" class="form-control" name="usuario" id="email" placeholder="Usuario" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <i class="fas fa-user"></i>
                             </div>
                         </div>
                     </div>
@@ -38,13 +38,13 @@
                         <input type="password" class="form-control" name="pass" id="pass" placeholder="Contraseña" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <i class="fas fa-lock"></i>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                            <button type="submit" class="btn btn-block" style="background-color: #3498DB ;"><span style="color: white;">Ingresar</span></button>
                         </div>
                     </div>
                 </form>

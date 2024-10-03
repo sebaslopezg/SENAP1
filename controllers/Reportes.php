@@ -4,7 +4,8 @@ require_once 'models/ReportesModel.php';
 //require_once 'Libraries/fpdf/fpdf.php';
 require_once 'Libraries/ReportPdf/ReportPdf.php';
 
-class Reportes{
+class Reportes
+{
 
     private $reportesModel;
     //private $pdf;
@@ -16,7 +17,7 @@ class Reportes{
         //$this->pdf = new FPDF();
         $this->nPdf = new ReportPdf();
     }
-    
+
     public function getReportes()
     {
 

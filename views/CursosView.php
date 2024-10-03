@@ -71,10 +71,6 @@
                     <form action="index.php?call=cursosAcciones&accion=agregar" method="post">
                       <!--Inicio contenido de la modal-->
                       <div class="modal-body">
-                        <input
-                          type="hidden"
-                          name="id"
-                          value="<?php echo isset($curso) ? $curso['id'] : ''; ?>" />
 
                         <div>
                           <label for="nombreCur" class="form-label">Nombre: </label>
@@ -86,7 +82,6 @@
                             id="nombreCurso"
                             placeholder="Nombre del curso"
                             aria-label="Nombre del curso"
-                            value="<?php echo isset($curso) ? htmlspecialchars($curso['nombreCurso']) : ''; ?>"
                             required />
                         </div>
 
@@ -100,7 +95,8 @@
                             id="descripcion"
                             placeholder="Descripcion"
                             rows="3"
-                            required><?php echo isset($curso) ? htmlspecialchars($curso['descripcion']) : ''; ?></textarea>
+                            required>
+                          </textarea>
                         </div>
                       </div>
                       <!--Fin contenido de la modal-->
@@ -222,7 +218,7 @@
                         <?php endforeach; ?>
                       <?php else: ?>
                         <tr>
-                          <td colspan="5">¡No hay cursos existentes!</td>
+                          <td colspan="5" style="text-align: center;">¡No existen cursos!</td>
                         </tr>
                       <?php endif; ?>
                     </tbody>

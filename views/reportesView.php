@@ -29,10 +29,9 @@
         <!-- Content Wrapper -->
         <div class="content-wrapper">
 
-
             <section class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
+                    <div class="row">
                         <div class="col-sm-4" style="padding-left: 1.2%">
                             <h1>Generar Reportes</h1>
                         </div>

@@ -39,54 +39,74 @@
   <!-- Sweet Alerts -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-      <!-- Estilos personalizados -->
-      <style>
-        /* Clase personalizada para eliminar el subrayado */
-        .no-underline {
-            text-decoration: none;
-            color: inherit;
-            /* Mantiene el color del texto original */
-        }
+  <!-- Estilos personalizados -->
+  <style>
+    /* Clase personalizada para eliminar el subrayado */
+    .no-underline {
+      text-decoration: none;
+      color: inherit;
+      /* Mantiene el color del texto original */
+    }
 
-        /* Asegura que no aparezca el subrayado en hover */
-        .no-underline:hover {
-            text-decoration: none;
-        }
+    /* Asegura que no aparezca el subrayado en hover */
+    .no-underline:hover {
+      text-decoration: none;
+    }
 
-        /* Cambia el cursor para que parezca un botón */
-        .info-box {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    /* Cambia el cursor para que parezca un botón */
+    .info-box {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        /* Efecto hover para que se vea como un botón */
-        .info-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+    /* Efecto hover para que se vea como un botón */
+    .info-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Oculta el texto del logotipo cuando el menú esté contraído */
-        .sidebar-collapse .brand-link h6 {
-            display: none;
-            /* Oculta el texto "Sistema de Gestión" */
-        }
+    /* Cards del home */
 
-        /* Oculta el texto del usuario cuando el menú esté contraído */
-        .sidebar-collapse .user-panel .info span {
-            display: none;
-            /* Oculta el texto "admin" */
-        }
+    .small-box {
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
 
-        /* Muestra los iconos cuando el menú esta contraído */
-        .sidebar-collapse .brand-link .nav-icon,
-        .sidebar-collapse .user-panel .icon {
-            display: inline-block;
-        }
+    .small-box:hover {
+      background-color: #2980B9;
+      /* Cambia el color de fondo en hover */
+      transform: scale(1.05);
+      /* Aumenta el tamaño ligeramente */
+    }
 
-        /* Muestra el texto normalmente cuando el menú esté expandido */
-        .brand-link h6,
-        .user-panel .info span {
-            display: inline-block;
-            /* Asegura que el texto esté visible */
-        }
-    </style>
+    .small-box-footer:hover {
+      color: #FFF;
+      /* Cambia el color del texto del enlace al pasar el mouse */
+    }
+
+    /* Sidebar */
+
+    /* Oculta el texto del logotipo cuando el menú esté contraído */
+    .sidebar-collapse .brand-link h6 {
+      display: none;
+      /* Oculta el texto "Sistema de Gestión" */
+    }
+
+    /* Oculta el texto del usuario cuando el menú esté contraído */
+    .sidebar-collapse .user-panel .info span {
+      display: none;
+      /* Oculta el texto "admin" */
+    }
+
+    /* Muestra los iconos cuando el menú esta contraído */
+    .sidebar-collapse .brand-link .nav-icon,
+    .sidebar-collapse .user-panel .icon {
+      display: inline-block;
+    }
+
+    /* Muestra el texto normalmente cuando el menú esté expandido */
+    .brand-link h6,
+    .user-panel .info span {
+      display: inline-block;
+      /* Asegura que el texto esté visible */
+    }
+  </style>
