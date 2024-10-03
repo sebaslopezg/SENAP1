@@ -29,6 +29,7 @@ if (isset($_SESSION['login'])) {
 }
 
 if ($sesionActiva) {
+
     if (count($_GET) > 0) {
 
         switch ($_GET['call']) {
@@ -66,6 +67,7 @@ if ($sesionActiva) {
         header('Location: index.php?call=home');
     }
 } else {
+    session_destroy();
     $loginController->getLogin();
 }
 

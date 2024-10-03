@@ -25,6 +25,7 @@ class Login
             );
 
             if (count($respuesta) > 0) {
+                session_start();
                 $this->inicioSesion = true;
                 $this->usuario->setNombre($respuesta['nombre_Adm']);
                 $_SESSION['login'] = true;

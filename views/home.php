@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
 
-    <?php header_template(); ?>
+    <?php 
+    header_template(); 
+    $usuario = new UsuarioSesion();
+    $usuario = $_SESSION['usuario'];
+    $nombreUsuario = $usuario->getNombre();
+    ?>
 
 </head>
 
@@ -33,7 +38,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1><b>Bienvenido</b></h1>
+                            <h1><b>Bienvenido <?= $nombreUsuario ?></b></h1>
                         </div>
                         <div class="col-sm-6" style="padding-right: 1.5%">
                             <ol class="breadcrumb float-sm-right">

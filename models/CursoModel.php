@@ -42,11 +42,11 @@ class CursoModel
         return $this->db->efectuarConsulta($consulta, [$nombre, $descripcion, $id], 'ssi');
     }
 
-    /* public function eliminarCurso($id)
+    public function eliminarCurso($id)
     {
         $consulta = "DELETE FROM cursos WHERE id_Cur = ?";
         return $this->db->efectuarConsulta($consulta, [$id], 'i');
-    } */
+    }
 
     public function __destruct()
     {
