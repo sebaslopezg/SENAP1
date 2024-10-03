@@ -1,13 +1,13 @@
-<!-- Menú lateral -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Logotipo -->
+
     <div class="brand-link" style="text-align: center">
         <i class="nav-icon fas fa-chart-line" style="padding-right: 2%"></i>
         <h6>Sistema de Gestión</h6>
     </div>
-    <!-- Menú -->
+
+
     <div class="sidebar">
-        <!-- Perfil de usuario -->
+
         <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="justify-content: center">
             <div class="icon">
                 <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%"></i>
@@ -17,7 +17,6 @@
             </div>
         </div>
 
-        <!-- Navegación -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <li class="nav-item">
@@ -65,4 +64,4 @@
             </ul>
         </nav>
     </div>
-</aside>
+</aside> 

@@ -23,6 +23,36 @@ class AsignarModel
         return $aprendices;
     }
 
+    function obtenerAsignados()
+    {
+        $consulta = "SELECT aprendices.id_aprendiz FROM aprendices 
+                    JOIN aprendices_has_cursos ON
+                    aprendices_has_cursos.Aprendices_id_aprendiz = aprendices.id_aprendiz
+                    WHERE aprendices.id_aprendiz = aprendices_has_cursos.Aprendices_id_aprendiz";
+        $resultado = $this->db->efectuarConsulta($consulta);
+
+        $aprendices = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $aprendices[] = $fila;
+        }
+        return $aprendices;
+    }
+
+    function obtenerCursosAsignados()
+    {
+        $consulta = "SELECT cursos.id_Cur FROM cursos 
+                    JOIN aprendices_has_cursos ON
+                    aprendices_has_cursos.Cursos_id_Cur = cursos.id_Cur
+                    WHERE cursos.id_Cur = aprendices_has_cursos.Cursos_id_Cur";
+        $resultado = $this->db->efectuarConsulta($consulta);
+
+        $aprendices = [];
+        while ($fila = mysqli_fetch_assoc($resultado)) {
+            $aprendices[] = $fila;
+        }
+        return $aprendices;
+    }
+
     public function obtenerCursos()
     {
         $consulta = "SELECT * FROM cursos";
