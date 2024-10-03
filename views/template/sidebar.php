@@ -1,3 +1,11 @@
+<?php
+
+$usuario = new UsuarioSesion();
+$usuario = $_SESSION['usuario'];
+$nombreUsuario = $usuario->getNombre();
+
+?>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
     <div class="brand-link" style="text-align: center">
@@ -13,7 +21,7 @@
                 <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%"></i>
             </div>
             <div class="info">
-                <span style="color: white"><?= $_SESSION['usuario'] ?></span>
+                <span style="color: white"><?= $nombreUsuario ?></span>
             </div>
         </div>
 

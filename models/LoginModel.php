@@ -14,16 +14,13 @@ class LoginModel
     }
 
     //crear validar
-    function comparar($usuario, $pass)
+    function obtenerUsuario($usuario, $pass)
     {
-        $consulta = "SELECT usuario_Adm, pass_Adm FROM `admin` WHERE usuario_Adm = ? AND pass_Adm = ?";
+        $consulta = "SELECT usuario_Adm, pass_Adm, nombre_Adm FROM `admin` WHERE usuario_Adm = ? AND pass_Adm = ?";
 
         $resultado = $this->db->efectuarConsulta($consulta, [$usuario, $pass], 'ss');
 
-        $admins = [];
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-            $admins[] = $fila;
-        }
-        return $admins;
+        $fila = mysqli_fetch_assoc($resultado);
+        return $fila;
     }
 }
