@@ -7,6 +7,7 @@ require_once 'controllers/Home.php';
 require_once 'controllers/Admins.php';
 require_once 'controllers/Login.php';
 require_once 'controllers/Reportes.php';
+require_once 'models/UsuarioSesion.php';
 
 //USUARIO: admin
 //CONTRASEÑA: admin
@@ -29,6 +30,7 @@ if (isset($_SESSION['login'])) {
 }
 
 if ($sesionActiva) {
+
     if (count($_GET) > 0) {
 
         switch ($_GET['call']) {
@@ -66,6 +68,7 @@ if ($sesionActiva) {
         header('Location: index.php?call=home');
     }
 } else {
+    session_destroy();
     $loginController->getLogin();
 }
 

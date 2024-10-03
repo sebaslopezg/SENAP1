@@ -57,10 +57,17 @@ function strClean($strCadena){
 }
 
 function msg($titulo, $icono, $showConfirmButton){
-"<script>Swal.fire({
-                title: '$titulo',
-                icon: '$icono',
-                text: '$showConfirmButton',
-                });
-            </script>";
+return "
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+
+    Swal.fire({
+    title: '$titulo',
+    icon: '$icono',
+    text: '$showConfirmButton',
+    });
+})
+
+</script>
+";
 } 

@@ -1,3 +1,10 @@
+<?php
+
+$usuario = new UsuarioSesion();
+$usuario = $_SESSION['usuario'];
+$nombreUsuario = $usuario->getNombre();
+
+?>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
@@ -6,6 +13,7 @@
         <h6>Sistema de Gestión</h6>
     </div>
 
+
     <div class="sidebar">
 
         <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="justify-content: center">
@@ -13,11 +21,10 @@
                 <i class="fas fa-user fa-2x" style="color: #c0c0c0; margin-left: 12%"></i>
             </div>
             <div class="info">
-                <span style="color: white"><?= $_SESSION['usuario'] ?></span>
+                <span style="color: white"><?= $nombreUsuario ?></span>
             </div>
         </div>
 
-        <!-- Navegación -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <li class="nav-item">
@@ -65,4 +72,4 @@
             </ul>
         </nav>
     </div>
-</aside>
+</aside> 

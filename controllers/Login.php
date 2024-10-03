@@ -1,13 +1,16 @@
 <?php
 require_once 'models/LoginModel.php';
+
 class Login
 {
     private $loginModel;
     public $inicioSesion;
+    private $usuario;
 
     public function __construct()
     {
         $this->loginModel = new LoginModel();
+        $this->usuario = new UsuarioSesion();
         $this->inicioSesion;
         
     }
@@ -16,16 +19,17 @@ class Login
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $respuesta = $this->loginModel->comparar(
-                filter_var($_POST['usuario'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                md5(filter_var($_POST['pass'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)),
+            $respuesta = $this->loginModel->obtenerUsuario(
+                strClean($_POST['usuario']),
+                md5(strClean($_POST['pass'])),
             );
 
-            print_r($respuesta);
             if (count($respuesta) > 0) {
+                session_start();
                 $this->inicioSesion = true;
+                $this->usuario->setNombre($respuesta['nombre_Adm']);
                 $_SESSION['login'] = true;
-                $_SESSION['usuario'] = $_POST['usuario'];
+                $_SESSION['usuario'] = $this->usuario;
                 header('Location: index.php?call=home');
             } else {
                 header('Location: index.php?call=login');
