@@ -28,9 +28,9 @@ class AdminsModel{
         return $this->db->efectuarConsulta($consulta, [$usuario, $pass, $email, $fnombre, $apellido], 'sssss');
     }
 
-    function actualizarAdmin($usuario, $pass, $email, $fnombre, $apellido, $idAdmin){
-        $consulta = "UPDATE `admin` SET usuario_Adm = ?, pass_Adm = ?, correo_Adm = ?, nombre_Adm = ?, apellido_Adm = ? WHERE id_Adm = ?";
-        return $this->db->efectuarConsulta($consulta, [$usuario, $pass, $email, $fnombre, $apellido], 'ssssss');
+    function actualizarAdmin($usuario, $email, $fnombre, $apellido, $idAdmin){
+        $consulta = "UPDATE `admin` SET usuario_Adm = ?, correo_Adm = ?, nombre_Adm = ?, apellido_Adm = ? WHERE id_Adm = ?";
+        return $this->db->efectuarConsulta($consulta, [$usuario, $pass, $email, $fnombre, $apellido], 'sssss');
     }
 }
 

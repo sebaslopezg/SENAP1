@@ -236,7 +236,7 @@
                                     </div>
 
                                     <!-- Formulario de Editar-->
-                                    <form action="index.php?call=cursosAcciones&accion=actualizar" method="post">
+                                    <form action="index.php?call=admins&accion=editar" method="post">
                                       <div class="modal-body text-start">
                                         <input type="hidden" name="id" value="<?php echo $admin['id_Adm']; ?>">
 
