@@ -1,5 +1,6 @@
 <?php
 require_once 'models/adminsModel.php';
+//TODO: Terminar de revisar validaciones del formulario
 class Admins
 {
     private $adminModel;
@@ -12,31 +13,37 @@ class Admins
     public function getAdmins()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $arrPost = ['usuario','password', 'correo', 'nombre', 'apellido'];
+
             if ($_GET['accion'] === 'guardar') {
-                $this->adminModel->agregarAdmin(
-                    filter_var($_POST['usuario'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    md5(filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)),
-                    filter_var($_POST['correo'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['nombre'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['apellido'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                );
+                if (check_post($arrPost)) {
+                    $this->adminModel->agregarAdmin(
+                        strClean($_POST['usuario']),
+                        md5(strClean($_POST['password'])),
+                        strClean($_POST['correo']),
+                        strClean($_POST['nombre']),
+                        strClean($_POST['apellido']),
+                    ); 
+                }
             }
             //codigo incompleto
             if ($_GET['accion'] === 'editar') {
                 $this->adminModel->actualizarAdmin(
-                    filter_var($_POST['usuario'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['correo'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['nombre'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['apellido'], FILTER_SANITIZE_FULL_SPECIAL_CHARS),
-                    filter_var($_POST['id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS)
+                    strClean($_POST['usuario']),
+                    strClean($_POST['password']),
+                    strClean($_POST['correo']),
+                    strClean($_POST['nombre']),
+                    strClean($_POST['apellido']),
+                    strClean($_POST['id'])
                 );
             }
-            header('Location: index.php?call=admins');
-            exit();
+           echo msg_redirect("Correcto!","success", "Administrador agregado correctamente","index.php?call=admins");
         }
-
+        
         $admins = $this->adminModel->mostrarAdmins();
         require_once 'views/adminsView.php';
+        
+        
     }
 }

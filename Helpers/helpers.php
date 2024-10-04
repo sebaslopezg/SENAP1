@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     Swal.fire({
     title: '$titulo',
     icon: '$icono',
-    text: '$mensaje',
+    text: '$mensaje'
     });
 })
 
@@ -72,7 +72,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
 ";
 } 
 
+function msg_redirect($titulo, $icono, $mensaje, $uri){
+    return "
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+    
+        Swal.fire({
+            title: '$titulo',
+            icon: '$icono',
+            text: '$mensaje',
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.replace('$uri')
+            }
+        });
+    })
+    
+    </script>
+    ";
+    } 
+
 function check_post(array $postNames){
+
     $validState = true;
     foreach ($postNames as $value) {
         if (!isset($_POST[$value]) || empty(strClean($_POST[$value]))) {
