@@ -13,16 +13,21 @@ class Aprendices
 
     function aprendices()
     {
+        $arrAprendices = $this->aprendicesModel->mostrarAprendices();
+        require 'views/aprendicesView.php';
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_GET['accion'] === 'guardar') {
-                if (
-                    isset($_POST['documentoAprendiz'])&&
-                    isset($_POST['nombreAprendiz'])&&
-                    isset($_POST['apellidoAprendiz'])&&
-                    isset($_POST['generoAprendiz'])&&
-                    isset($_POST['fechaNacimientoAprendiz'])&&
-                    isset($_POST['telefonoAprendiz'])&&
-                    isset($_POST['correoAprendiz'])) {
+                $arrPost = [
+                    'documentoAprendiz',
+                    'nombreAprendiz',
+                    'apellidoAprendiz', 
+                    'generoAprendiz', 
+                    'fechaNacimientoAprendiz',
+                    'telefonoAprendiz',
+                    'correoAprendiz'
+                ];
+               if (check_post($arrPost)) {
                         $this->aprendicesModel->agregarAprendiz(
                             strClean($_POST['documentoAprendiz']),
                             strClean($_POST['nombreAprendiz']),
@@ -30,20 +35,16 @@ class Aprendices
                             strClean($_POST['generoAprendiz']),
                             strClean($_POST['fechaNacimientoAprendiz']),
                             strClean($_POST['telefonoAprendiz']),
-                            strClean($_POST['correoAprendiz'])    
+                            strClean($_POST['correoAprendiz'])  
                         );
-                }
+                        msg("Guardar","succses","Aprendiz guardado Exitosamente");  
+                }else{
+                    msg("Error","error","Error al guardar aprendiz");
+                } 
 
             }
             if ($_GET['accion'] === 'editar') {
-                if (
-                    isset($_POST['documentoAprendiz'])&&
-                    isset($_POST['nombreAprendiz'])&&
-                    isset($_POST['apellidoAprendiz'])&&
-                    isset($_POST['generoAprendiz'])&&
-                    isset($_POST['fechaNacimientoAprendiz'])&&
-                    isset($_POST['telefonoAprendiz'])&&
-                    isset($_POST['correoAprendiz'])) {
+                if (check_post($arrPost)) {
                         $this->aprendicesModel->actualizarAprendiz(
                             strClean($_POST['documentoAprendiz']),
                             strClean($_POST['nombreAprendiz']),
@@ -53,13 +54,12 @@ class Aprendices
                             strClean($_POST['telefonoAprendiz']),
                             strClean($_POST['correoAprendiz'])
                         );
+                        msg("Guardar","succses","Aprendiz editado Exitosamente");  
+                }else{
+                    msg("Error","error","Error al editar aprendiz");
                 }
 
             }
-            header('Location: index.php?call=aprendices');
-            exit();
         }
-        $arrAprendices = $this->aprendicesModel->mostrarAprendices();
-        require 'views/aprendicesView.php';
     }
 }

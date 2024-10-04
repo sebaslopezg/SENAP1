@@ -56,7 +56,7 @@ function strClean($strCadena){
     return $string;
 }
 
-function msg($titulo, $icono, $showConfirmButton){
+function msg($titulo, $icono, $mensaje){
 return "
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -64,10 +64,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
     Swal.fire({
     title: '$titulo',
     icon: '$icono',
-    text: '$showConfirmButton',
+    text: '$mensaje',
     });
 })
 
 </script>
 ";
 } 
+
+function check_post(array $postNames){
+    $validState = true;
+    foreach ($postNames as $value) {
+        if (!isset($_POST[$value]) || empty(strClean($_POST[$value]))) {
+            $validState = false;
+        }
+    }
+
+    return $validState;
+}
