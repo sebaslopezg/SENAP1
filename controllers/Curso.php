@@ -15,41 +15,56 @@ class Curso
         $cursos = $this->cursoModel->obtenerCursos();
         include 'views/CursosView.php';
     }
-    
+
     public function manejarFormulario()
     {
-        if (isset($_POST['action'])) {
-            if ($_POST['action'] === 'agregar') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if ($_GET['accion'] === 'agregar') {
                 if (
                     isset($_POST['nombreCurso']) && !empty(trim($_POST['nombreCurso'])) &&
                     isset($_POST['descripcion']) && !empty(trim($_POST['descripcion']))
                 ) {
                     $nombreCurso =  strClean($_POST['nombreCurso']);
                     $descripcion = strClean($_POST['descripcion']);
-                    $this->cursoModel->agregarCurso($nombreCurso, $descripcion);
-                    // Redirige al listado de cursos después de agregar
-                    header('Location: index.php?call=cursos');
-                    exit();
+
+                    $validarNombre = $this->cursoModel->validarNombreCurso($nombreCurso);
+
+                    if (mysqli_num_rows($validarNombre) > 0) {
+                        echo msg_redirect("¡Error!", "error", "Curso ya existente.", "index.php?call=cursos");
+                    } else {
+                        $this->cursoModel->agregarCurso($nombreCurso, $descripcion);
+                        echo msg_redirect("¡Completado!", "success", "Curso agregado exitosamente.", "index.php?call=cursos");
+                    }
                 } else {
-                    msg("Error","error", "Faltan mas datos");
+                    echo msg_redirect("¡Atencion!", "warning", "Llene todos los campos.", "index.php?call=cursos");
                 }
-            } elseif ($_POST['action'] === 'actualizar') {
+            } elseif ($_GET['accion'] === 'actualizar') {
                 if (
                     isset($_POST['id']) && !empty(trim($_POST['id'])) &&
-                    isset($_POST['nombreCurso']) && !empty(trim($_POST['nombreCurso'])) &&
                     isset($_POST['descripcion']) && !empty(trim($_POST['descripcion']))
                 ) {
                     $id = $_POST['id'];
-                    $nombreCurso = strClean($_POST['nombreCurso']);
                     $descripcion = strClean($_POST['descripcion']);
-                    $this->cursoModel->actualizarCurso($id, $nombreCurso, $descripcion);
-                    // Redirige al listado de cursos después de actualizar
-                    header('Location: index.php?call=cursos');
-                    exit();
+                    $this->cursoModel->actualizarCurso($id, $descripcion);
+                    echo msg_redirect("¡Completado!", "success", "Curso actualizado exitosamente.", "index.php?call=cursos");
                 } else {
-                    echo "Faltan datos del formulario para actualizar.";
+                    echo msg_redirect("¡Atencion!", "warning", "Faltan datos del formulario para actualizar.", "index.php?call=cursos");
+                }
+            } elseif ($_GET['accion'] === 'eliminar') {
+                if (
+                    isset($_POST['id']) && !empty(trim($_POST['id'])) &&
+                    isset($_POST['nombreCurso']) && !empty(trim($_POST['nombreCurso']))
+                ) {
+                    $id = $_POST['id'];
+                    $nombreCurso = $_POST['nombreCurso'];
+                    $this->cursoModel->eliminarCurso($id);
+                    echo msg_redirect("¡Completado!", "error", "Curso " . $nombreCurso .  "  eliminado.", "index.php?call=cursos");
+                } else {
+                    echo "No exiaten las variables";
                 }
             }
         }
+        $cursos = $this->cursoModel->obtenerCursos();
+        include 'views/CursosView.php';
     }
 }
