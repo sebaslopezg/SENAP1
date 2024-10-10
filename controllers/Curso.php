@@ -58,7 +58,7 @@ class Curso
                     $id = $_POST['id'];
                     $nombreCurso = $_POST['nombreCurso'];
                     $this->cursoModel->eliminarCurso($id);
-                    echo msg_redirect("¡Completado!", "error", "Curso " . $nombreCurso .  "  eliminado.", "index.php?call=cursos");
+                    echo msg_redirect("¡Completado!", "success", "Curso " . $nombreCurso .  "  eliminado correctamente.", "index.php?call=cursos");
                 } else {
                     echo "No exiaten las variables";
                 }

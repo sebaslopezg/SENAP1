@@ -37,9 +37,9 @@ class Aprendices
                         strClean($_POST['telefonoAprendiz']),
                         strClean($_POST['correoAprendiz'])
                     );
-                    msg("Guardar", "succses", "Aprendiz guardado Exitosamente");
+                    echo msg("Guardar", "success", "Aprendiz guardado Exitosamente");
                 } else {
-                    msg("Error", "error", "Error al guardar aprendiz");
+                    echo msg("Error", "error", "Error al guardar aprendiz");
                 }
             }
             if ($_GET['accion'] === 'editar') {
@@ -53,9 +53,9 @@ class Aprendices
                         strClean($_POST['telefonoAprendiz']),
                         strClean($_POST['correoAprendiz'])
                     );
-                    msg("Guardar", "succses", "Aprendiz editado Exitosamente");
+                    echo msg("Guardar", "success", "Aprendiz editado Exitosamente");
                 } else {
-                    msg("Error", "error", "Error al editar aprendiz");
+                    echo msg("Error", "error", "Error al editar aprendiz");
                 }
             }
         }

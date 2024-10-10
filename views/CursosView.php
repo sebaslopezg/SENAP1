@@ -161,70 +161,66 @@
                             <td><?php echo ($curso['nombre_Cur']); ?></td>
                             <td><?php echo ($curso['descripcion_Cur']); ?></td>
                             <td><?php echo ($curso['fecha_Creacion_Cur']); ?></td>
-                            <td style="text-align: center">
-                              <div class="row">
-                                <div class="col-4"> <!-- Botón para abrir el modal específico de este curso -->
-                                  <button type="button" class="btn btn-primary bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#modalEditarCurso<?php echo $curso['id_Cur']; ?>">
+                            <td>
+                              <div class="d-flex gap-2" style="justify-content: center; align-items: center;">
+                                <!-- Botón para abrir el modal específico de este curso -->
+                                <button
+                                  type="button"
+                                  class="btn btn-primary bi bi-pencil-square"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#modalEditarCurso<?php echo $curso['id_Cur']; ?>">
+                                </button>
 
-                                  </button>
-
-                                  <!-- Modal único para cada curso -->
-                                  <div class="modal fade" id="modalEditarCurso<?php echo $curso['id_Cur']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Curso</h1>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-
-                                        <!-- Formulario de Editar-->
-                                        <form action="index.php?call=cursosAcciones&accion=actualizar" method="post">
-                                          <div class="modal-body text-start">
-                                            <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
-
-                                            <!-- Nombre del curso -->
-                                            <div class="mb-3">
-                                              <label for="nombreCur" class="form-label">Nombre: </label>
-                                              <div
-                                                class="alert alert-dark"
-                                                role="alert">
-                                                <?php echo $curso['nombre_Cur']; ?>
-                                              </div>
-                                            </div>
-
-                                            <!-- Descripción del curso -->
-                                            <div class="mb-3">
-                                              <label for="descripcion<?php echo $curso['id_Cur']; ?>" class="form-label">Descripción:</label>
-                                              <textarea class="form-control" name="descripcion" id="descripcion<?php echo $curso['id_Cur']; ?>" required><?php echo trim($curso['descripcion_Cur']); ?></textarea>
-                                            </div>
-                                          </div>
-                                          <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <button class="btn btn-primary" type="submit" name="action" value="actualizar">Editar</button>
-                                          </div>
-                                        </form>
-                                        <!-- Fin Formulario de Editar-->
+                                <!-- Modal único para cada curso -->
+                                <div class="modal fade" id="modalEditarCurso<?php echo $curso['id_Cur']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Curso</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                       </div>
+
+                                      <!-- Formulario de Editar-->
+                                      <form action="index.php?call=cursosAcciones&accion=actualizar" method="post">
+                                        <div class="modal-body text-start">
+                                          <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
+
+                                          <!-- Nombre del curso -->
+                                          <div class="mb-3">
+                                            <label for="nombreCur" class="form-label">Nombre: </label>
+                                            <div
+                                              class="alert alert-dark"
+                                              role="alert">
+                                              <?php echo $curso['nombre_Cur']; ?>
+                                            </div>
+
+                                          </div>
+
+                                          <!-- Descripción del curso -->
+                                          <div class="mb-3">
+                                            <label for="descripcion<?php echo $curso['id_Cur']; ?>" class="form-label">Descripción:</label>
+                                            <textarea class="form-control" name="descripcion" id="descripcion<?php echo $curso['id_Cur']; ?>" required><?php echo trim($curso['descripcion_Cur']); ?></textarea>
+                                          </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                          <button class="btn btn-primary" type="submit" name="action" value="actualizar">Editar</button>
+                                        </div>
+                                      </form>
+                                      <!-- Fin Formulario de Editar-->
                                     </div>
                                   </div>
-                                  <!-- Fin del modal -->
                                 </div>
-                                <div class="col-1"></div>
-                                <div class="col-4">
-                                  <!-- Botón para abrir el modal específico de este curso -->
-                                  <form action="index.php?call=cursosAcciones&accion=eliminar" method="post">
+                                <!-- Fin del modal -->
 
-                                    <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
-                                    <input type="hidden" name="nombreCurso" value="<?php echo $curso['nombre_Cur']; ?>">
-                                    <button type="submit" class="btn btn-danger bi bi-trash3-fill">
-                                    </button>
-                                  </form>
-                                </div>
+                                <!-- Botón para abrir el modal específico de este curso -->
+                                <form action="index.php?call=cursosAcciones&accion=eliminar" method="post">
+                                  <input type="hidden" name="id" value="<?php echo $curso['id_Cur']; ?>">
+                                  <input type="hidden" name="nombreCurso" value="<?php echo $curso['nombre_Cur']; ?>">
+                                  <button type="submit" class="btn btn-danger bi bi-trash3-fill">
+                                  </button>
+                                </form>
                               </div>
-
-
-
-
                             </td>
                           </tr>
                         <?php endforeach; ?>
