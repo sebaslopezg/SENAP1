@@ -98,23 +98,20 @@
                                     <div class="row">
 
                                       <div class="col-12 col-sm-1"></div>
-                                      <div class="col-12 col-sm-5">
-
-                                        <?php foreach ($aprendices as $aprendiz): ?>
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="arrayAprendices[]" value="<?php echo $aprendiz['id_aprendiz']; ?>" id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">
-
-                                              <?php echo $aprendiz['nombre_Apr'];
-                                              echo ' ' . $aprendiz['apellido_Apr']; ?>
-
-                                            </label>
-                                          </div>
-                                        <?php endforeach; ?>
-
+                                      <div class="form-group col-12 col-sm-5">
+                                        <label for="exampleSelect">Aprendices</label>
+                                        <select class="form-select" id="exampleSelect" name="arrayAprendices[]">
+                                          <option value="" selected disabled>Selecciona un aprendiz</option>
+                                          <?php foreach ($aprendices as $aprendiz): ?>
+                                            <option value="<?php echo $aprendiz['id_aprendiz']; ?>">
+                                              <?php echo $aprendiz['id_aprendiz'];
+                                              echo '. ' . $aprendiz['nombre_Apr']; ?>
+                                            </option>
+                                          <?php endforeach; ?>
+                                        </select>
                                       </div>
-                                      <div class="col-12 col-sm-5">
 
+                                      <div class="col-12 col-sm-5">
                                         <?php foreach ($cursos as $curso): ?>
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="cursoSeleccionado" value="<?php echo $curso['id_Cur']; ?>" id="flexCheckChecked">
@@ -124,7 +121,6 @@
                                             </label>
                                           </div>
                                         <?php endforeach; ?>
-
                                       </div>
                                       <div class="col-12 col-sm-1"></div>
 
@@ -155,32 +151,28 @@
                                     <div class="row">
                                       <div class="col-12 col-sm-1"></div>
                                       <div class="col-12 col-sm-5">
-
                                         <?php foreach ($aprendices as $aprendiz): ?>
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="aprendizSeleccionado" value="<?php echo $aprendiz['id_aprendiz']; ?>" id="flexCheckChecked">
                                             <label class="form-check-label" for="flexCheckChecked">
-
                                               <?php echo $aprendiz['nombre_Apr'];
                                               echo ' ' . $aprendiz['apellido_Apr']; ?>
                                             </label>
                                           </div>
                                         <?php endforeach; ?>
-
                                       </div>
-                                      <div class="col-12 col-sm-5">
 
-                                        <?php foreach ($cursos as $curso): ?>
-                                          <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="arrayCursos[]" value="<?php echo $curso['id_Cur']; ?>" id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">
-
+                                      <div class="form-group col-12 col-sm-5">
+                                        <label for="exampleSelect">Cursos</label>
+                                        <select class="form-select" id="exampleSelect" name="arrayCursos[]">
+                                          <option value="" selected disabled>Selecciona un curso</option>
+                                          <?php foreach ($cursos as $curso): ?>
+                                            <option value="<?php echo $curso['id_Cur']; ?>">
                                               <?php echo $curso['id_Cur'];
                                               echo '. ' . $curso['nombre_Cur']; ?>
-                                            </label>
-                                          </div>
-                                        <?php endforeach; ?>
-
+                                            </option>
+                                          <?php endforeach; ?>
+                                        </select>
                                       </div>
                                       <div class="col-12 col-sm-1"></div>
 

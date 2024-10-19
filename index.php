@@ -71,4 +71,3 @@ if ($sesionActiva) {
     session_destroy();
     $loginController->getLogin();
 }
-

@@ -36,16 +36,23 @@ class CursoModel
         return mysqli_fetch_assoc($resultado);
     }
 
-    public function actualizarCurso($id, $nombre, $descripcion)
-    {
-        $consulta = "UPDATE cursos SET nombre_Cur = ?, descripcion_Cur = ? WHERE id_Cur = ?";
-        return $this->db->efectuarConsulta($consulta, [$nombre, $descripcion, $id], 'ssi');
+    public function actualizarCurso($id, $descripcion)
+    {/* 
+        $consulta = "UPDATE cursos SET nombre_Cur = ?, descripcion_Cur = ? WHERE id_Cur = ?"; */
+        $consulta = "UPDATE cursos SET descripcion_Cur = ? WHERE id_Cur = ?";
+        return $this->db->efectuarConsulta($consulta, [$descripcion, $id], 'si');
     }
 
     public function eliminarCurso($id)
     {
         $consulta = "DELETE FROM cursos WHERE id_Cur = ?";
         return $this->db->efectuarConsulta($consulta, [$id], 'i');
+    }
+
+    public function validarNombreCurso($nombre)
+    {
+        $consulta = "SELECT nombre_Cur FROM cursos WHERE nombre_Cur = ?";
+        return $this->db->efectuarConsulta($consulta, [$nombre], 's');
     }
 
     public function __destruct()

@@ -69,7 +69,7 @@
                                 <div class="info-box" style="color: white; background-color: #28A745;">
                                     <span class="info-box-icon" style="background-color: white;"><i class="fas fa-users" style="color: #333333;"></i></span>
                                     <div class="info-box-content">
-                                        <h5>Aprendices Asignados</h5>
+                                        <h5>Asignaciones</h5>
                                         <span><?= $cantidadAprendices ?></span>
                                     </div>
                                 </div>
