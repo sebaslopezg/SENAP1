@@ -24,7 +24,7 @@ class Login
                 md5(strClean($_POST['pass'])),
             );
 
-            if (count($respuesta) > 0) {
+            if (!empty($respuesta)) {
                 session_start();
                 $this->inicioSesion = true;
                 $this->usuario->setNombre($respuesta['nombre_Adm']);

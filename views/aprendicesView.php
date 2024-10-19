@@ -318,6 +318,9 @@
                                 </div>
                               </div>
                               <!-- Fin del modal -->
+                               <form action="index.php?call=aprendices&accion=eliminar&id=<?= $aprendiz['id_aprendiz'] ?>" method="POST">
+                                <button type="submit" class="btn btn-danger fas fa-trash-alt">Eliminar</button>
+                               </form>
                             </td>
                           </tr>
                         <?php endforeach; ?>

@@ -32,6 +32,11 @@ class AprendicesModel{
         $sql = "UPDATE aprendices SET nombre_Apr = ?, apellido_Apr = ?, genero_Apr = ?, fecha_Nacimiento_Apr = ?, telefono_Apr = ?, correo_Apr = ? WHERE num_Doc_Apr = ?";
         return $this->db->efectuarConsulta($sql, [$nombreAprendiz, $apellidoAprendiz, $generoAprendiz, $fechaNacimiento, $telefono, $email, $numeroDoc], 'sssssss');
     }
+
+    function eliminarAprendiz($id){
+        $sql = "DELETE FROM aprendices WHERE id_aprendiz = ?";
+        return $this->db->efectuarConsulta($sql, [$id], 's');
+    }
 }
 
 ?>

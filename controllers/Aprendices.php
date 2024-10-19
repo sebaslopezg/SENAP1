@@ -37,9 +37,9 @@ class Aprendices
                             strClean($_POST['telefonoAprendiz']),
                             strClean($_POST['correoAprendiz'])  
                         );
-                        msg("Guardar","succses","Aprendiz guardado Exitosamente");  
+                        echo msg_redirect("Guardar", "succses", "Aprendiz guardado Exitosamente", "index.php?call=aprendices");
                 }else{
-                    msg("Error","error","Error al guardar aprendiz");
+                    echo msg_redirect("Error","error","Error al guardar aprendiz","index.php?call=aprendices");
                 } 
 
             }
@@ -54,9 +54,22 @@ class Aprendices
                             strClean($_POST['telefonoAprendiz']),
                             strClean($_POST['correoAprendiz'])
                         );
-                        msg("Guardar","succses","Aprendiz editado Exitosamente");  
+                        echo msg_redirect("Editar","succses","Aprendiz editado Exitosamente", "index.php?call=aprendices");  
                 }else{
-                    msg("Error","error","Error al editar aprendiz");
+                    echo msg_redirect("Error","error","Error al editar aprendiz", "index.php?call=aprendices");
+                }
+
+            }
+            //codigo para eliminar
+            if ($_GET['accion'] === 'eliminar') {
+                if (isset($_GET['id'])) {
+                    $idAprendiz = intval(strClean($_GET['id']));
+                    echo msg("Mensaje","info","Aprendiz eliminado exitosamente");
+                    $this->eliminarAprendiz($idAprendiz);
+                    echo msg_redirect("Eliminar","succses","Aprendiz eliminado exitosamente", "index.php?call=aprendices"); 
+                }else{
+                    echo msg_redirect("Eliminar","error","error al eliminar registro", "index.php?call=aprendices");
+                    //header("Location: index.php?call=aprendices");
                 }
 
             }
