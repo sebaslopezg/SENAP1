@@ -33,7 +33,9 @@ class ReportesModel{
         return $aprendices[0]['TOTAL'];
     }
     function CantidadAprendicesSinCursos(){
-        $sql = "SELECT (SELECT DISTINCT COUNT(id_aprendiz) FROM aprendices) - (SELECT DISTINCT COUNT(Aprendices_id_aprendiz) FROM aprendices_has_cursos) AS TOTAL";
+        $sql = "SELECT COUNT(id_aprendiz) AS TOTAL FROM aprendices a WHERE NOT EXISTS 
+                (SELECT * FROM aprendices_has_cursos b
+                WHERE a.id_aprendiz = b.Aprendices_id_aprendiz);";
         $resultado = $this->db->efectuarConsulta($sql);
 
         $aprendices = [];
