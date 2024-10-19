@@ -17,6 +17,7 @@ class Login
 
     public function getLogin()
     {
+        require_once 'views/loginView.php';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $respuesta = $this->loginModel->obtenerUsuario(
@@ -32,12 +33,16 @@ class Login
                 $_SESSION['usuario'] = $this->usuario;
                 header('Location: index.php?call=home');
             } else {
-                header('Location: index.php?call=login');
+                echo msg_redirect("Error", "error", "Usuario o contraseña no valido", "index.php?call=login");
             }
 
-            exit();
+            //exit();
         } else {
-            require_once 'views/loginView.php';
+            
         }
+    }
+
+    public function checkLogin(){
+
     }
 }

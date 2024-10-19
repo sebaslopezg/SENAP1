@@ -27,6 +27,7 @@ class Aprendices
                     'telefonoAprendiz',
                     'correoAprendiz'
                 ];
+
                 if (check_post($arrPost)) {
                     $this->aprendicesModel->agregarAprendiz(
                         strClean($_POST['documentoAprendiz']),
@@ -37,9 +38,9 @@ class Aprendices
                         strClean($_POST['telefonoAprendiz']),
                         strClean($_POST['correoAprendiz'])
                     );
-                    echo msg("Guardar", "success", "Aprendiz guardado Exitosamente");
+                    echo msg_redirect("Guardar", "success", "Aprendiz guardado Exitosamente", "index.php?call=aprendices");
                 } else {
-                    echo msg("Error", "error", "Error al guardar aprendiz");
+                    echo msg_redirect("Error", "error", "Error al guardar aprendiz", "index.php?call=aprendices");
                 }
             }
             if ($_GET['accion'] === 'editar') {
@@ -53,9 +54,23 @@ class Aprendices
                         strClean($_POST['telefonoAprendiz']),
                         strClean($_POST['correoAprendiz'])
                     );
-                    echo msg("Guardar", "success", "Aprendiz editado Exitosamente");
+                    echo msg_redirect("Guardar", "success", "Aprendiz editado Exitosamente", "index.php?call=aprendices");
                 } else {
-                    echo msg("Error", "error", "Error al editar aprendiz");
+                    echo msg_redirect("Error", "error", "Error al editar aprendiz", "index.php?call=aprendices");
+                }
+            }
+            if ($_GET['accion'] === 'eliminar') {
+                $idAprendiz = $_GET['id'];
+
+                if (!empty($idAprendiz)) {
+                    if (intval($idAprendiz) > 0) {
+                        $this->aprendicesModel->eliminarAprendiz($idAprendiz);
+                        echo msg_redirect("Eliminar", "success", "Aprendiz eliminado Exitosamente", "index.php?call=aprendices");
+                    } else {
+                        echo msg_redirect("Eliminar", "error", "Error al eliminar aprendiz", "index.php?call=aprendices");
+                    }  
+                }else{
+                    echo msg_redirect("Eliminar", "error", "ID vacío", "index.php?call=aprendices");
                 }
             }
         }

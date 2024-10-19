@@ -268,14 +268,15 @@
                                         </div>
                                         <br>
                                         <div class="mb-3">
-                                          <label class="form-label">Genero:</label>
-                                          <input
-                                            class="form-control"
-                                            type="text"
-                                            name="generoAprendiz"
-                                            value="<?= $aprendiz['genero_Apr']; ?>"
-                                            required>
+                                          <label for="nombreCur" class="form-label">Genero: </label>
+                                          <br />
+                                          <select class="form-control" name="generoAprendiz" id="" value="<?= $aprendiz['genero_Apr']; ?>">
+                                            <option value="masculino">Masculino</option>
+                                            <option value="femenino">Femenino</option>
+                                            <option value="na">Prefiero no decirlo</option>
+                                          </select>
                                         </div>
+
                                         <br>
                                         <div class="mb-3">
                                           <label class="form-label">Fecha de nacimiento:</label>
